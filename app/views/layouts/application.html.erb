@@ -8,7 +8,19 @@
 </head>
 <body>
 
+
+ <p>
+  <%= link_to 'Countries', countries_path() %>  &bull;
+  <%= link_to 'Beers', beers_path() %>
+ </p>
+
+
 <%= yield %>
+
+
+<div class='version'>
+  <%= powered_by %>
+</div>
 
 </body>
 </html>

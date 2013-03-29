@@ -1,0 +1,27 @@
+
+<h3>Countries</h3>
+
+<table>
+<% @countries.each do |country| %>
+
+<% count = country.beers.count
+   if count > 0 %>
+<tr>
+  <td class='country-key'><%= country.key %></td>
+  <td>
+    <%= image_tag_for_country( country ) %>
+    <%= country.title %></td>
+  <td>
+    <% country.beers.each_with_index do |beer,i| %>
+       <% if i > 0 %>
+         &bull; 
+       <% end %>
+       <%= beer.title %>
+    <% end %>
+    <span class="beer-count">(<%= count %>)</span>
+  </td>
+</tr>
+<% end %>
+
+<% end %>
+</table>

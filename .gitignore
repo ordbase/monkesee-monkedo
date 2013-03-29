@@ -17,3 +17,9 @@
 # Ignore komodo project files
 *.kpf
 
+################
+# Ignore dbs in db folder
+
+db/*.db
+db/*.sqlite3
+

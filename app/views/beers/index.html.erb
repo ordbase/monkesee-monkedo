@@ -1,0 +1,22 @@
+
+<h3><%= @beers.count %> Beers</h3>
+
+<table>
+<% @beers.each do |beer| %>
+<tr>
+  <td class='beer-key'><%= beer.key %></td>
+  <td><%= beer.title %></td>
+  <td><%= beer.synonyms %></td>
+  <td>
+    <% if beer.city.present? %>
+      <%= beer.city.title %>
+    <% else %>
+      -
+    <% end %>
+  </td>
+  <td>/ <%= image_tag_for_country( beer.country ) %>
+        <%= beer.country.title %>
+   </td>
+</tr>
+<% end %>
+</table>

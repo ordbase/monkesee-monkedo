@@ -4,5 +4,11 @@ Prost::Application.routes.draw do
 
   get "pages/about"
 
-  root :to => 'pages#index'
+  ## mount sinatra app (bundled w/ logutils gem)
+  mount LogDb::Server, :at => '/logs'    # NB: make sure to require 'logutils/server'
+
+  resources :beers
+  resources :countries
+
+  root :to => 'beers#index'
 end

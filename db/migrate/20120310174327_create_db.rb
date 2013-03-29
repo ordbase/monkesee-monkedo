@@ -1,16 +1,12 @@
+
 class CreateDb < ActiveRecord::Migration
   def up
-  
-create_table :users do |t|
-  t.string :name, :null => false
-  t.string :email
-  t.string :password
-  t.timestamps
-end
-  
+    LogDb.create
+    WorldDb.create
+    BeerDb.create
   end
 
   def down
-    raise IrreversibleMigration
+    raise ActiveRecord::IrreversibleMigration
   end
 end

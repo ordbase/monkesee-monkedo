@@ -1,12 +1,23 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '3.2.12'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'sinatra'   # NB: used for logutils (server/service)
+
+gem 'logutils', '0.6.0'
+
+gem 'worlddb-data', '99', :git => 'https://github.com/geraldb/world.db.git'
+gem 'beerdb-data', '99', :git => 'https://github.com/geraldb/beer.db.git'
+
+gem 'worlddb', '1.6.3'
+gem 'beerdb', '0.1.0'
+
+gem 'worlddb-flags', '0.1.0'   # use bundled country flags
+
 
 group :production do
   gem 'pg'
+  gem 'thin'    # use faster multiplexed (w/ eventmachine) web server
 end
 
 group :development do
