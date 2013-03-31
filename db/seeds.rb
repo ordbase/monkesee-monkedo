@@ -9,6 +9,10 @@ WorldDb.read_all( find_world_db_path_from_gemfile_gitref! )
 
 ## fix: move to beerdb gem -?
 
+## fix: use a "generic" method
+## just pass in 'beer.db'
+## e.g. find_path_from_gemfile_gitref!( 'beer.db' )
+
 def find_beer_db_path_from_gemfile_gitref!
   puts "[debug] find_beer_db_path..."
   puts "load path:"

@@ -5,18 +5,58 @@
 <% @beers.each do |beer| %>
 <tr>
   <td class='beer-key'><%= beer.key %></td>
-  <td><%= beer.title %></td>
-  <td><%= beer.synonyms %></td>
+  <td><%= beer.title %>
+     <% if beer.synonyms.present? %>
+       | <%= beer.synonyms %>
+     <% end %>
+     /
+     <% if beer.abv.present? %>
+       <%= beer.abv %>
+     <% else %>
+       -
+     <% end %>
+      %
+     <% if beer.plato.present? %>
+     &bull; <%= beer.plato %>°
+     <% end %>
+     
+     //
+     <% if beer.brewery.present? %>
+       <%= beer.brewery.title %>
+     <% else %>
+       -
+     <% end %>
+     
+<% if beer.tags.count > 0 %>
+    <br>
+    <span class='tags'>
+    <% beer.tags.each_with_index do |tag,i| %>
+      <% if i > 0 %>
+         &bull; 
+       <% end %>
+       <%= tag.key %>
+    <% end %>
+    </span>
+<% end %>
+     
+  </td>
   <td>
     <% if beer.city.present? %>
       <%= beer.city.title %>
     <% else %>
       -
     <% end %>
-  </td>
-  <td>/ <%= image_tag_for_country( beer.country ) %>
-        <%= beer.country.title %>
+    /
+    <% if beer.region.present? %>
+      <%= beer.region.title %>
+    <% else %>
+      -
+    <% end %>
+    /
+     <%= image_tag_for_country( beer.country ) %>
+     <%= beer.country.title %>
    </td>
 </tr>
+
 <% end %>
 </table>

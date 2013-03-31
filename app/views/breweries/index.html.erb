@@ -1,0 +1,61 @@
+
+<h3><%= @breweries.count %> Breweries</h3>
+
+<table>
+<% @breweries.each do |brewery| %>
+<tr>
+  <td class='brewery-key'><%= brewery.key %></td>
+  <td>
+    <%= brewery.title %>
+    <% if brewery.synonyms.present? %>
+       | <%= brewery.synonyms %>
+    <% end %>
+    
+<% if brewery.tags.count > 0 %>
+    <span class='tags'>
+    <% brewery.tags.each_with_index do |tag,i| %>
+      <% if i > 0 %>
+         &bull; 
+       <% end %>
+       <%= tag.key %>
+    <% end %>
+    </span>
+<% end %>
+    
+  </td>
+  <td>
+    <% if brewery.city.present? %>
+      <%= brewery.city.title %>
+    <% else %>
+      -
+    <% end %>
+     /
+    <% if brewery.region.present? %>
+      <%= brewery.region.title %>
+    <% else %>
+      -
+    <% end %>
+     /
+     <%= image_tag_for_country( brewery.country ) %>
+     <%= brewery.country.title %>
+   </td>
+</tr>
+
+<tr>
+  <td></td>
+  <td colspan='2'>
+    <% brewery.beers.each_with_index do |beer,i| %>
+      <% if i > 0 %>
+         &bull; 
+       <% end %>
+       <%= beer.title %>
+    <% end %>
+    <span class='beer-count'>
+       (<%= brewery.beers.count %>)
+    </span>
+  </td>
+</tr>
+
+<% end %>
+</table>
+

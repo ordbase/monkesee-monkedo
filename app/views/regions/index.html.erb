@@ -1,0 +1,50 @@
+
+<h3>Regions</h3>
+
+<table>
+<% @regions.each do |region| %>
+
+
+
+<% count = region.beers.count
+   if count > 0 %>
+<tr>
+  <td>
+    <span class='region-key'><%= region.key %></span>
+    <%= region.title %>
+    / <%= image_tag_for_country( region.country ) %>
+    <%= region.country.title %>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <% region.beers.each_with_index do |beer,i| %>
+       <% if i > 0 %>
+         &bull; 
+       <% end %>
+       <%= beer.title %>
+    <% end %>
+    <span class="beer-count">(<%= count %>)</span>
+  </td>
+</tr>
+
+<% breweries_count = region.breweries.count
+   if breweries_count > 0 %>
+<tr>
+  <td>
+    <% region.breweries.each_with_index do |brewery,i| %>
+       <% if i > 0 %>
+         &bull; 
+       <% end %>
+       <%= brewery.title %>
+    <% end %>
+    <span class="beer-count">(<%= breweries_count %>)</span>
+  </td>
+</tr>
+<% end %>
+
+<% end %>
+
+<% end %>
+</table>

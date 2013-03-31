@@ -8,7 +8,10 @@ Prost::Application.routes.draw do
   mount LogDb::Server, :at => '/logs'    # NB: make sure to require 'logutils/server'
 
   resources :beers
+  resources :breweries
   resources :countries
+  resources :regions
+  resources :tags
 
   root :to => 'beers#index'
 end

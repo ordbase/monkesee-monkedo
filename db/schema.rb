@@ -14,23 +14,32 @@
 ActiveRecord::Schema.define(:version => 20120310174327) do
 
   create_table "beers", :force => true do |t|
-    t.string   "title",                         :null => false
     t.string   "key",                           :null => false
+    t.string   "title",                         :null => false
     t.string   "synonyms"
     t.boolean  "bottle",     :default => false, :null => false
     t.boolean  "draft",      :default => false, :null => false
     t.boolean  "seasonal",   :default => false, :null => false
+    t.decimal  "kcal"
+    t.decimal  "abv"
+    t.decimal  "plato"
+    t.integer  "color"
+    t.integer  "brewery_id"
     t.integer  "country_id",                    :null => false
+    t.integer  "region_id"
     t.integer  "city_id"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end
 
   create_table "breweries", :force => true do |t|
-    t.string   "title"
     t.string   "key",        :null => false
+    t.string   "title",      :null => false
     t.string   "synonyms"
+    t.string   "address"
+    t.integer  "founded"
     t.integer  "country_id", :null => false
+    t.integer  "region_id"
     t.integer  "city_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

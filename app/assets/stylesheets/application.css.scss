@@ -30,7 +30,11 @@ a {
 
 .team-count,
 .city-count,
-.beer-count {
+.beer-count,
+.country-key,
+.brewery-key,
+.region-key,
+.tags {
   color: $dark-gray;
   font-size: 12px;   // ~80%
 }

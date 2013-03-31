@@ -10,7 +10,7 @@ gem 'worlddb-data', '99', :git => 'https://github.com/geraldb/world.db.git'
 gem 'beerdb-data', '99', :git => 'https://github.com/geraldb/beer.db.git'
 
 gem 'worlddb', '1.6.3'
-gem 'beerdb', '0.1.0'
+gem 'beerdb', '0.2.0'
 
 gem 'worlddb-flags', '0.1.0'   # use bundled country flags
 

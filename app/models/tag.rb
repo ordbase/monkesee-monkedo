@@ -1,0 +1,2 @@
+
+Tag = WorldDb::Models::Tag
