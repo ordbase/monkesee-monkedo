@@ -1,12 +1,12 @@
 GIT
   remote: https://github.com/geraldb/beer.db.git
-  revision: 0952f58b5d1f666f7d6b8587c4acc16416aba3a8
+  revision: b35777ef656e677359d6d81be8b5d699f07cb92f
   specs:
     beerdb-data (99)
 
 GIT
   remote: https://github.com/geraldb/world.db.git
-  revision: 1c45e8bc3aef06a3f307ae0fd556ecb1789278ff
+  revision: 594ddcbaec5e769979686d16641086ca868c1595
   specs:
     worlddb-data (99)
 
