@@ -14,7 +14,11 @@ Prost::Application.routes.draw do
   match 'breweries/:brewery_id/users/:id', :to => 'users#add_brewery', :as => 'add_brewery_to_user'
   match 'users/:user_id/beers/:beer_id/drinks/new', :to => 'drinks#new', :as => 'new_user_beer_drink'
 
+  match 'bookmarks/:id/flag', :to => 'bookmarks#update_flag', :as => 'update_bookmark_flag'
+
   resources :drinks
+  resources :bookmarks 
+  
 
   resources :users do
    ## resources :drinks

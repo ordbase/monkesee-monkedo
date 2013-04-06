@@ -24,38 +24,6 @@ class UsersController < ApplicationController
       bookmark.bookmarkable_type = 'BeerDb::Models::Beer'
     end
 
-
-    # move check params to bookmarks controller
-    # - use regular update for example
-    
-    # check params
-    if params[:yes].present?
-      if params[:yes] == 'true' || params[:yes] == 't'
-        bookmark.yes = true  # +1
-        bookmark.no  = false
-      else
-        bookmark.yes = false
-      end
-    end
-      
-    if params[:no].present?
-      if params[:no] == 'true' || params[:no] == 't'
-        bookmark.no  = true  # -1
-        bookmark.yes = false
-      else  
-        bookmark.no = false
-      end
-    end
-
-    if params[:wish].present?
-      if params[:wish] == 'true' || params[:wish] == 't'
-        bookmark.wish = true
-        bookmark.no    = false  # reset -1 flag if present
-      else
-        bookmark.wish = false
-      end
-    end
-
     flash[:notice] = 'Bookmark erfolgreich gespeichert.'
     bookmark.save!
 

@@ -40,6 +40,10 @@
 </div>
 
 <p>
+  <% if signed_in? %>
+    <%= link_to 'Frontpage', frontpage_path() %>  &bull;
+  <% end %>
+
   <%= link_to 'Countries', countries_path() %>  &bull;
   <%= link_to 'Regions', regions_path() %>  &bull;
   <%= link_to 'Beers', beers_path() %>  &bull;

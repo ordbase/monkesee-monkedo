@@ -22,13 +22,7 @@ class DrinksController < ApplicationController
 
   # POST /drinks
   def create
-    puts "drink hash:"
-    pp params[:drink]
-    
     @drink = Drink.new(params[:drink])
-    
-    puts "drink obj:"
-    pp @drink
     
     if @drink.save
       flash[:notice] = 'Drink erfolgreich gespeichert.'
@@ -50,14 +44,8 @@ class DrinksController < ApplicationController
 
   # PUT /drinks/1
   def update
-    puts "drink hash:"
-    pp params[:drink]
-    
     @drink = Drink.find( params[:id] )
     
-    puts "drink obj:"
-    pp @drink
-
     if @drink.update_attributes( params[:drink] )
       flash[:notice] = 'Drink erfolgreich gespeichert.'
       redirect_to frontpage_path()

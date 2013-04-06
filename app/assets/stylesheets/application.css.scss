@@ -64,6 +64,15 @@ table {
   }
 }
 
+.drink-rating {
+    font-size: 40px;
+}
+
+.drink-comments,
+.drink-place {
+    color: $dark-gray;
+    font-size: 12px;   // ~80%
+}
 
 
 /////////////////////////
