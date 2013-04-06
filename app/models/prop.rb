@@ -1,0 +1,2 @@
+
+Prop = WorldDb::Models::Prop

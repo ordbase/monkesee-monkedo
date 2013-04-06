@@ -45,6 +45,16 @@ ActiveRecord::Schema.define(:version => 20120310174327) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "cellars", :force => true do |t|
+    t.integer  "beer_id",                       :null => false
+    t.integer  "user_id",                       :null => false
+    t.boolean  "yes",        :default => false, :null => false
+    t.boolean  "no",         :default => false, :null => false
+    t.boolean  "drunk",      :default => true,  :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
   create_table "cities", :force => true do |t|
     t.string   "title",                         :null => false
     t.string   "key",                           :null => false
@@ -99,6 +109,16 @@ ActiveRecord::Schema.define(:version => 20120310174327) do
 
   add_index "countries", ["code"], :name => "index_countries_on_code", :unique => true
   add_index "countries", ["key"], :name => "index_countries_on_key", :unique => true
+
+  create_table "drinks", :force => true do |t|
+    t.integer  "beer_id",    :null => false
+    t.integer  "user_id",    :null => false
+    t.integer  "rating"
+    t.text     "comments"
+    t.string   "place"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "langs", :force => true do |t|
     t.string   "key",        :null => false
@@ -171,6 +191,17 @@ ActiveRecord::Schema.define(:version => 20120310174327) do
     t.boolean  "official",   :default => true,  :null => false
     t.boolean  "minor",      :default => false, :null => false
     t.float    "percent"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "key",                           :null => false
+    t.string   "name",                          :null => false
+    t.string   "email",                         :null => false
+    t.boolean  "admin",      :default => false, :null => false
+    t.boolean  "guest",      :default => false, :null => false
+    t.boolean  "active",     :default => true,  :null => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end

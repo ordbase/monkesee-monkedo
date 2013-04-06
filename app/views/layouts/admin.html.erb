@@ -5,15 +5,14 @@
 </head>
 <body>
 
-
-<% unless controller_name == 'sessions' %>
-
-<div class='navbar'>
+<div class='navbar admin'>
 <table width='100%' cellspacing=0>
   <tr>
     <!-- left -->
     <td>
-      <span class='logo'><%= link_to '[Logo]', beers_path() %></span> &nbsp;&nbsp;&nbsp;
+      <span class='logo'><%= link_to '[Logo]', beers_path() %></span>
+      <span> - Admin - </span>
+      &nbsp;&nbsp;&nbsp;
       <% if content_for? :breadcrumb %>
         <span class='breadcrumb-inline'>
           <%= yield :breadcrumb %>
@@ -27,11 +26,11 @@
 
     &nbsp;
     <span class='signout'>
-      <%= link_to t(:signout), signout_path %>
+      <%= link_to 'Abmelden', signout_path %>
     </span>
  <% else %>
     <span class='signin'>
-    <%= link_to t(:signin), signin_path %>
+    <%= link_to 'Anmelden', signin_path %>
     </span>
  <% end %>
     </td>
@@ -39,16 +38,10 @@
 </table>
 </div>
 
-<p>
-  <%= link_to 'Countries', countries_path() %>  &bull;
-  <%= link_to 'Regions', regions_path() %>  &bull;
-  <%= link_to 'Beers', beers_path() %>  &bull;
-  <%= link_to 'Breweries', breweries_path() %>  &bull;
-  <%= link_to 'Tags', tags_path() %>
-</p>
 
-<% end %>
-
+ <p>
+  <%= link_to 'Users', admin_users_path() %>
+ </p>
 
 
 <div class='content' style='padding: 0px 20px 0px 20px;'>

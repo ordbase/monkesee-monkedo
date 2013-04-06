@@ -1,4 +1,31 @@
+# encoding: utf-8
+
 module ApplicationHelper
+
+  # todo/fix: try/polish breadcrumb helper
+  def breadcrumb(*parts)
+    content_for :breadcrumb do
+      parts.join( ' › ' )
+    end
+  end
+
+  def signed_in?
+    session[:user_id].nil? == false
+  end
+  
+  def current_user
+    User.find( session[:user_id] )
+  end
+  
+  def current_user_id
+    session[:user_id]
+  end
+  
+  def current_user?( user )
+    session[:user_id] == user.id
+  end
+
+
 
   def powered_by
     content_tag :div do

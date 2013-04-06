@@ -4,6 +4,8 @@ gem 'rails', '3.2.12'
 
 gem 'sinatra'   # NB: used for logutils (server/service)
 
+gem 'bourbon', '1.4.0' # scss mixins (see http://thoughtbot.com/bourbon)
+
 gem 'logutils', '0.6.0'
 
 gem 'worlddb-data', '99', :git => 'https://github.com/geraldb/world.db.git'
