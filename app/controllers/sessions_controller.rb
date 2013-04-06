@@ -25,8 +25,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       flash[:notice] = 'Anmeldung erfolgreich.'
       
-      ### fix: redirect to users dashboard/beers page
-      redirect_to beers_path()
+      redirect_to frontpage_path()
     else
       if @user.present?
         if @user.active == false

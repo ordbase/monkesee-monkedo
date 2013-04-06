@@ -28,7 +28,8 @@ class CreateDb < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :cellars do |t|   # join table (user,beer)
+    ## todo: change to beermarks instead of bookmarks?
+    create_table :bookmarks do |t|   # join table (user,beer)
       t.references :beer, :null => false
       t.references :user, :null => false
       t.boolean :yes,   :null => false, :default => false  # like/favorite/top

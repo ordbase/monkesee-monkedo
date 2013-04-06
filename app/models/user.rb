@@ -1,6 +1,11 @@
 
 class User < ActiveRecord::Base
 
+  has_many :drinks   # beers w/ ratings
+  
+  has_many :bookmarks  # bookmarked beers
+
+
 
   before_save :on_before_save
   

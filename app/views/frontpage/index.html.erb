@@ -1,0 +1,44 @@
+
+<h3><%= @user.name %> - 
+  <%= @user.bookmarks.count %> Biere,
+  <%= @user.drinks.count %> Ratings
+</h3>
+
+
+<p>
+  Top (+1)
+</p>
+
+<%= render partial: 'bookmarks', locals: { bookmarks: @user.bookmarks.where(yes:true,drunk:true) } %>
+
+<p>
+  More
+</p>
+
+<%= render partial: 'bookmarks', locals: { bookmarks: @user.bookmarks.where(yes:false,no:false,drunk:true) } %>
+
+<p>
+  Blacklist (-1)
+</p>
+
+<%= render partial: 'bookmarks', locals: { bookmarks: @user.bookmarks.where(yes:false,no:true,drunk:true) } %>
+
+
+<hr>
+<p>Wishlist</p>
+
+<p>
+  Top (+1)
+</p>
+
+<%= render partial: 'bookmarks', locals: { bookmarks: @user.bookmarks.where(yes:true,drunk:false) } %>
+
+
+<p>
+  More
+</p>
+
+<%= render partial: 'bookmarks', locals: { bookmarks: @user.bookmarks.where(yes:false,drunk:false) } %>
+
+
+

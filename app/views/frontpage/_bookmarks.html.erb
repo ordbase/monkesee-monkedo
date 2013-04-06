@@ -1,0 +1,70 @@
+<!-- params
+       bookmarks
+  -->
+
+<table>
+<% bookmarks.each do |bookmark| %>
+ <tr>
+
+  <td>
+<!--
+  
+    <% if bookmark.yes? %>
+       +1
+    <% end %>
+    <% if bookmark.no? %>
+       -1
+    <% end %>
+-->
+    <% if bookmark.drunk? %>
+      
+    <% else %>
+      ∅
+    <% end %>
+
+    <%= bookmark.beer.title %>
+  </td>
+  
+  <td>
+    <!-- fix: use update_bookmark !!! route -->
+    <% if bookmark.yes? %>
+       <%= link_to raw(content_tag(:del,'+1')), add_beer_to_user_path( bookmark.beer_id, bookmark.user_id, yes: false ), class: 'btn' %>
+    <% else %>
+       <%= link_to '+1', add_beer_to_user_path( bookmark.beer_id, bookmark.user_id, yes: true ), class: 'btn' %>
+    <% end %>
+
+    <% if bookmark.no? %>
+       <%= link_to raw(content_tag(:del,'-1')), add_beer_to_user_path( bookmark.beer_id, bookmark.user_id, no: false ), class: 'btn' %>
+    <% else %>
+       <%= link_to '-1', add_beer_to_user_path( bookmark.beer_id, bookmark.user_id, no: true ), class: 'btn'  %>
+    <% end %>
+  </td>
+
+  <td>
+    <% if bookmark.drunk? %>
+       <%= link_to 'Wish ∅', add_beer_to_user_path( bookmark.beer_id, bookmark.user_id, drunk: false ), class: 'btn' %>
+    <% else %>
+       <%= link_to 'Drink', add_beer_to_user_path( bookmark.beer_id, bookmark.user_id, drunk: true ), class: 'btn' %>
+    <% end %>
+  </td>
+  
+  <td>
+    <%= link_to 'Neues Rating', new_user_beer_drink_path( bookmark.user_id, bookmark.beer_id ), class: 'btn' %>
+  </td>
+
+ </tr>
+
+  <% bookmark.drinks.each do |drink| %>
+    <tr>
+       <td>
+         <span style='font-size: 300%'><%= drink.rating %></span>
+         <%= drink.comments %>
+         / <%= drink.place %>
+       </td>
+       <td>
+         <%= link_to 'Bearbeiten', edit_drink_path( drink.id ), class: 'btn'  %>
+       </td>
+    </tr>
+  <% end %>
+<% end %><!-- each bookmark -->
+</table>
