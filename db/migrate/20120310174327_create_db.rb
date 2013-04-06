@@ -28,13 +28,12 @@ class CreateDb < ActiveRecord::Migration
       t.timestamps
     end
 
-    ## todo: change to beermarks instead of bookmarks?
-    create_table :bookmarks do |t|   # join table (user,beer)
-      t.references :beer, :null => false
+    create_table :bookmarks do |t|   # join table (user,beer/brewery)
+      t.references :bookmarkable, :polymorphic => true   # todo: check add :null => false is possible/needed?
       t.references :user, :null => false
       t.boolean :yes,   :null => false, :default => false  # like/favorite/top
       t.boolean :no,    :null => false, :default => false  # dislike/flop/blacklisted
-      t.boolean :drunk, :null => false, :default => true   # e.g drunk == false => wishlist (beer not yet drunken/tasted)
+      t.boolean :wish,  :null => false, :default => false   # e.g wish == false == drunk / wishlist (beer not yet drunken/tasted)
       
       t.timestamps
     end

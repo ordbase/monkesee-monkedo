@@ -16,11 +16,12 @@ class UsersController < ApplicationController
     user = current_user()
     
     # check if bookmark exists; if not create it
-    bookmark = Bookmark.find_by_beer_id_and_user_id( beer.id, user.id )
+    bookmark = Bookmark.find_by_bookmarkable_id_and_user_id( beer.id, user.id )
     if bookmark.nil?
       bookmark = Bookmark.new
       bookmark.user_id = user.id
-      bookmark.beer_id = beer.id
+      bookmark.bookmarkable_id   = beer.id
+      bookmark.bookmarkable_type = 'BeerDb::Models::Beer'
     end
 
 
@@ -46,12 +47,12 @@ class UsersController < ApplicationController
       end
     end
 
-    if params[:drunk].present?
-      if params[:drunk] == 'true' || params[:drunk] == 't'
-        bookmark.drunk = true
-      else
-        bookmark.drunk = false
+    if params[:wish].present?
+      if params[:wish] == 'true' || params[:wish] == 't'
+        bookmark.wish = true
         bookmark.no    = false  # reset -1 flag if present
+      else
+        bookmark.wish = false
       end
     end
 

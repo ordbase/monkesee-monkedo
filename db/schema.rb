@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(:version => 20120310174327) do
     t.datetime "updated_at",                    :null => false
   end
 
+  create_table "bookmarks", :force => true do |t|
+    t.integer  "bookmarkable_id"
+    t.string   "bookmarkable_type"
+    t.integer  "user_id",                              :null => false
+    t.boolean  "yes",               :default => false, :null => false
+    t.boolean  "no",                :default => false, :null => false
+    t.boolean  "wish",              :default => false, :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+  end
+
   create_table "breweries", :force => true do |t|
     t.string   "key",        :null => false
     t.string   "title",      :null => false
@@ -43,16 +54,6 @@ ActiveRecord::Schema.define(:version => 20120310174327) do
     t.integer  "city_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "cellars", :force => true do |t|
-    t.integer  "beer_id",                       :null => false
-    t.integer  "user_id",                       :null => false
-    t.boolean  "yes",        :default => false, :null => false
-    t.boolean  "no",         :default => false, :null => false
-    t.boolean  "drunk",      :default => true,  :null => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
   end
 
   create_table "cities", :force => true do |t|

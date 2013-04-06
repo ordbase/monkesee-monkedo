@@ -5,6 +5,7 @@ module BeerDb::Models
 class Beer
   
   ## has_many :drinks, :class_name => 'Drink'
+  ## has_many :bookmarks, :as => :bookmarkable
 
 end # class Beer
 

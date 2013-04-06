@@ -9,19 +9,19 @@
   Top (+1)
 </p>
 
-<%= render partial: 'bookmarks', locals: { bookmarks: @user.bookmarks.where(yes:true,drunk:true) } %>
+<%= render partial: 'bookmarks', locals: { bookmarks: @user.bookmarks.where(yes:true,wish:false) } %>
 
 <p>
   More
 </p>
 
-<%= render partial: 'bookmarks', locals: { bookmarks: @user.bookmarks.where(yes:false,no:false,drunk:true) } %>
+<%= render partial: 'bookmarks', locals: { bookmarks: @user.bookmarks.where(yes:false,no:false,wish:false) } %>
 
 <p>
   Blacklist (-1)
 </p>
 
-<%= render partial: 'bookmarks', locals: { bookmarks: @user.bookmarks.where(yes:false,no:true,drunk:true) } %>
+<%= render partial: 'bookmarks', locals: { bookmarks: @user.bookmarks.where(yes:false,no:true,wish:false) } %>
 
 
 <hr>
@@ -31,14 +31,14 @@
   Top (+1)
 </p>
 
-<%= render partial: 'bookmarks', locals: { bookmarks: @user.bookmarks.where(yes:true,drunk:false) } %>
+<%= render partial: 'bookmarks', locals: { bookmarks: @user.bookmarks.where(yes:true,wish:true) } %>
 
 
 <p>
   More
 </p>
 
-<%= render partial: 'bookmarks', locals: { bookmarks: @user.bookmarks.where(yes:false,drunk:false) } %>
+<%= render partial: 'bookmarks', locals: { bookmarks: @user.bookmarks.where(yes:false,wish:true) } %>
 
 
 
