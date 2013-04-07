@@ -23,7 +23,7 @@
     <!-- right -->
     <td style='text-align: right;'>
  <% if signed_in? %>
-    Willkommen, <%= current_user.name %>!
+    Willkommen, <%= link_to current_user.name, edit_user_path(current_user_id) %>!
 
     &nbsp;
     <span class='signout'>
@@ -48,7 +48,8 @@
   <%= link_to 'Regions', regions_path() %>  &bull;
   <%= link_to 'Beers', beers_path() %>  &bull;
   <%= link_to 'Breweries', breweries_path() %>  &bull;
-  <%= link_to 'Tags', tags_path() %>
+  <%= link_to 'Tags', tags_path() %>    &bull;
+  <%= link_to 'Timeline', time_path() %>
 </p>
 
 <% end %>

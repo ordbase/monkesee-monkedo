@@ -8,11 +8,11 @@
   
 <% if signed_in? %>
   <td>
-     <%= link_to "Add", add_beer_to_user_path( beer.id, current_user_id ), class: 'btn' %>
+     <%= link_to 'Add', add_beer_to_user_path( beer.id, current_user_id ), class: 'btn' %>
   </td>
 <% end %>
   
-  <td><%= beer.title %>
+  <td><%= link_to beer.title, beer_path( beer.id ) %>
      <% if beer.synonyms.present? %>
        | <%= beer.synonyms %>
      <% end %>

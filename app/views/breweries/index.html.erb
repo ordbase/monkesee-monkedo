@@ -5,6 +5,13 @@
 <% @breweries.each do |brewery| %>
 <tr>
   <td class='brewery-key'><%= brewery.key %></td>
+
+<% if signed_in? %>
+  <td>
+     <%= link_to 'Add', add_brewery_to_user_path( brewery.id, current_user_id ), class: 'btn' %>
+  </td>
+<% end %>
+
   <td>
     <%= brewery.title %>
     <% if brewery.synonyms.present? %>
@@ -48,7 +55,7 @@
       <% if i > 0 %>
          &bull; 
        <% end %>
-       <%= beer.title %>
+       <%= link_to beer.title, beer_path(beer.id) %>
     <% end %>
     <span class='beer-count'>
        (<%= brewery.beers.count %>)

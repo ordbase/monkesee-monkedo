@@ -1,5 +1,7 @@
+
 <!-- params
-       bookmarks
+       bookmarks   (array)
+       allow_edits (boolean)
   -->
 
 <table>
@@ -22,9 +24,10 @@
 
     <% end %>
 
-    <%= bookmark.beer.title %>
+    <%= link_to bookmark.beer.title, beer_path( bookmark.beer.id ) %>
   </td>
 
+ <% if allow_edits == true %>
   <td>
     <% if bookmark.yes? %>
        <%= link_to raw(content_tag(:del,'+1')), update_bookmark_flag_path( bookmark.id, yes: false ), class: 'btn' %>
@@ -50,7 +53,8 @@
   <td>
     <%= link_to 'Neues Rating', new_user_beer_drink_path( bookmark.user_id, bookmark.bookmarkable_id ), class: 'btn' %>
   </td>
-
+  <% end %><!-- if allow_edits -->
+  
  </tr>
 
   <% bookmark.drinks.each do |drink| %>
@@ -65,9 +69,11 @@
             <%= drink.place %>
          </span>
        </td>
-       <td>
-         <%= link_to 'Bearbeiten', edit_drink_path( drink.id ), class: 'btn'  %>
-       </td>
+       <% if allow_edits == true %>
+        <td>
+          <%= link_to 'Bearbeiten', edit_drink_path( drink.id ), class: 'btn'  %>
+        </td>
+       <% end %>
     </tr>
   <% end %>
 <% end %><!-- each bookmark -->

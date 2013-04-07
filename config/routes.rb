@@ -4,8 +4,10 @@ Prost::Application.routes.draw do
   match 'signout', :to => 'sessions#destroy'
   
   match 'about', :to => 'pages#about'
-
+  
   resource :session, :only => [:new, :create, :destroy]
+  
+  match 'time',   :to => 'time#index'
 
   # current user's start page/front page
   match 'frontpage', :to => 'frontpage#index'

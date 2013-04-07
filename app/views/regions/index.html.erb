@@ -23,7 +23,7 @@
        <% if i > 0 %>
          &bull; 
        <% end %>
-       <%= beer.title %>
+       <%= link_to beer.title, beer_path(beer.id) %>
     <% end %>
     <span class="beer-count">(<%= count %>)</span>
   </td>

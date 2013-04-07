@@ -1,0 +1,107 @@
+
+<% beer = @beer %>
+
+
+<h3><%= beer.title %></h3>
+
+<% if beer.tags.count > 0 %>
+<p>
+    <span class='tags'>
+    <% beer.tags.each_with_index do |tag,i| %>
+      <% if i > 0 %>
+         &bull; 
+       <% end %>
+       <%= tag.key %>
+    <% end %>
+    </span>
+</p>
+<% end %>
+
+
+
+<% if beer.brewery.present? %>
+<p>
+ By  <%= beer.brewery.title %> / 
+     <%= beer.brewery.address %>
+</p>
+<% else %>
+  <!-- nothing -->
+<% end %>
+
+<p>
+  <% if beer.city.present? %>
+      <%= beer.city.title %>
+    <% else %>
+      -
+    <% end %>
+    /
+    <% if beer.region.present? %>
+      <%= beer.region.title %>
+    <% else %>
+      -
+    <% end %>
+    /
+     <%= image_tag_for_country( beer.country ) %>
+     <%= beer.country.title %>
+</p>
+
+
+<% if signed_in? %>
+<p>
+  <%= link_to "Add", add_beer_to_user_path( beer.id, current_user_id ), class: 'btn' %>
+</p>
+<% end %>
+
+
+<p>
+<% if beer.synonyms.present? %>
+   <%= beer.synonyms %> /
+<% end %>
+     
+<% if beer.abv.present? %>
+  <%= beer.abv %>
+<% else %>
+  -
+<% end %>
+  %
+    
+<% if beer.plato.present? %>
+  &bull; <%= beer.plato %>°
+<% end %>
+</p>
+
+
+
+<h3><%= beer.bookmarks.where(yes:true).count %>  +1s</h3>
+
+<p>
+<% beer.bookmarks.where(yes:true).each_with_index do |bookmark,i| %>
+  <% if i > 0 %>
+    &bull;
+  <% end %>
+  <%= link_to bookmark.user.name, user_path( bookmark.user.id ) %>
+<% end %>
+</p>
+
+<h3><%= beer.drinks.count %> Ratings</h3>
+
+<% beer.drinks.each do |drink| %>
+
+<p>
+ <%= link_to drink.user.name, user_path( drink.user.id ) %>
+   -
+  <span class='drink-rating'>
+     <%= drink.rating %>
+   </span>
+
+   <span class='drink-comments'>
+     <%= drink.comments %>
+    </span>
+   /
+   <span class='drink-place'>
+     <%= drink.place %>
+   </span>
+</p>
+
+<% end %>
+

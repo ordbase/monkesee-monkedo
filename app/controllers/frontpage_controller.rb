@@ -4,9 +4,7 @@ class FrontpageController < ApplicationController
   include ApplicationHelper
 
   def index
-    @user =  current_user()  # e.g. User.find( session[:user_id] )
-    
-
+    redirect_to user_path( current_user_id() )
   end
 
 end # class FrontpageController
