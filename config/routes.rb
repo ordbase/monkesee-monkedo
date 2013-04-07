@@ -37,7 +37,10 @@ Prost::Application.routes.draw do
   end
 
   ## mount sinatra app (bundled w/ logutils gem)
-  mount LogDb::Server, :at => '/logs'    # NB: make sure to require 'logutils/server'
+  mount LogDb::Server, :at => '/logs'    # NB: make sure to require 'logutils/server' in env
+
+  match '/api' => redirect('/api/v1')
+  mount BeerDb::Server, :at => '/api/v1' # NB: make sure to require 'beerdb/server' in env
 
   resources :beers
   resources :breweries

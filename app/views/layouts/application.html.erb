@@ -50,6 +50,11 @@
   <%= link_to 'Breweries', breweries_path() %>  &bull;
   <%= link_to 'Tags', tags_path() %>    &bull;
   <%= link_to 'Timeline', time_path() %>
+
+.::.
+
+  <!-- fix: use named url_helper for /api -->
+  <%= link_to "Web Service Demo & Docu / HTTP JSON API", '/api' %>
 </p>
 
 <% end %>
