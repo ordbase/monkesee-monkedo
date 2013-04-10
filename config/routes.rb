@@ -9,6 +9,13 @@ Prost::Application.routes.draw do
   
   match 'time',   :to => 'time#index'
 
+  ###############################
+  # routes for shortcuts (friendly urls)
+  
+  ## 2 lower case letters - assume shortcut for country
+  match '/:key', :to => 'countries#shortcut', :as => :short_country_worker, :key => /[a-z]{2}/
+
+
   # current user's start page/front page
   match 'frontpage', :to => 'frontpage#index'
 

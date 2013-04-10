@@ -12,7 +12,7 @@
   <td>
     <span class='country-key'><%= country.key %></span>
     <%= image_tag_for_country( country ) %>
-    <%= country.title %>
+    <%= link_to country.title, short_country_path( country ) %>
   </td>
 </tr>
 

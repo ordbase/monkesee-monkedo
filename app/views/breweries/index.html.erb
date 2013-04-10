@@ -44,22 +44,14 @@
     <% end %>
      /
      <%= image_tag_for_country( brewery.country ) %>
-     <%= brewery.country.title %>
+     <%= link_to brewery.country.title, short_country_path( brewery.country ) %>
    </td>
 </tr>
 
 <tr>
   <td></td>
   <td colspan='2'>
-    <% brewery.beers.each_with_index do |beer,i| %>
-      <% if i > 0 %>
-         &bull; 
-       <% end %>
-       <%= link_to beer.title, beer_path(beer.id) %>
-    <% end %>
-    <span class='beer-count'>
-       (<%= brewery.beers.count %>)
-    </span>
+    <%= render_beers( brewery.beers ) %>
   </td>
 </tr>
 

@@ -1,0 +1,40 @@
+
+<h3>
+<%= image_tag_for_country( @country, size: '64x64' ) %>
+
+<!-- fix: use full_title e.g. is title (code) -->
+<%= @country.title %> 
+(<%= @country.code %>), 
+
+ <%= @country.breweries.count %> Breweries,
+ <%= @country.beers.count %> Beers
+</h3>
+
+
+
+
+<table>
+  <% @country.regions.each do |region| %>
+     <tr>
+      <td colspan='2' style='background-color: silver;'>
+        <%= region.title_w_synonyms %>
+        <span class='city-count'>
+          (<%= region.breweries.count %>)
+        </span>
+      </td>
+     </tr>
+
+   <% region.breweries.order( 'title' ).each do |brewery| %>
+    <tr>
+      <td>
+        <%= brewery.title %> || <%= brewery.founded %> || <%= brewery.address %>
+        
+        <%= render_tags( brewery.tags ) %>
+      </td>
+      <td style='vertical-align: baseline;'>
+        <%= render_beers( brewery.beers ) %>
+      </td>
+    </tr>
+   <% end %><!-- each brewery -->
+  <% end %> <!-- each region -->
+</table>

@@ -13,7 +13,7 @@
     <span class='region-key'><%= region.key %></span>
     <%= region.title %>
     / <%= image_tag_for_country( region.country ) %>
-    <%= region.country.title %>
+    <%= link_to region.country.title, short_country_path( region.country ) %>
   </td>
 </tr>
 

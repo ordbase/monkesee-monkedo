@@ -2,18 +2,14 @@
 <% beer = @beer %>
 
 
-<h3><%= beer.title %></h3>
+<h3><%= beer.title %>,
+    <%= beer.bookmarks.where(yes:true).count %>  +1s,
+    <%= beer.drinks.count %> Ratings
+</h3>
 
 <% if beer.tags.count > 0 %>
 <p>
-    <span class='tags'>
-    <% beer.tags.each_with_index do |tag,i| %>
-      <% if i > 0 %>
-         &bull; 
-       <% end %>
-       <%= tag.key %>
-    <% end %>
-    </span>
+  <%= render_tags( beer.tags ) %>
 </p>
 <% end %>
 
@@ -21,7 +17,8 @@
 
 <% if beer.brewery.present? %>
 <p>
- By  <%= beer.brewery.title %> / 
+ By  <%= beer.brewery.title %> ||
+     <%= beer.brewery.founded %> ||
      <%= beer.brewery.address %>
 </p>
 <% else %>
@@ -42,7 +39,7 @@
     <% end %>
     /
      <%= image_tag_for_country( beer.country ) %>
-     <%= beer.country.title %>
+     <%= link_to beer.country.title, short_country_path( beer.country ) %>
 </p>
 
 

@@ -61,7 +61,7 @@
     <% end %>
     /
      <%= image_tag_for_country( beer.country ) %>
-     <%= beer.country.title %>
+     <%= link_to beer.country.title, short_country_path( beer.country ) %>
    </td>
 </tr>
 

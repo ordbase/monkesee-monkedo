@@ -5,19 +5,19 @@
 </h3>
 
 
-<p>
+<p style='background-color: silver;'>
   Top (+1)
 </p>
 
 <%= render_bookmarks( @user.bookmarks.where( yes:true, wish:false) ) %>
 
-<p>
+<p style='background-color: silver;'>
   More
 </p>
 
 <%= render_bookmarks( @user.bookmarks.where( yes:false, no:false, wish:false ) ) %>
 
-<p>
+<p style='background-color: silver;'>
   Blacklist (-1)
 </p>
 
@@ -26,13 +26,13 @@
 <hr>
 <p>Wishlist</p>
 
-<p>
+<p style='background-color: silver;'>
   Top (+1)
 </p>
 
 <%= render_bookmarks( @user.bookmarks.where( yes:true, wish:true) ) %>
 
-<p>
+<p style='background-color: silver;'>
   More
 </p>
 
