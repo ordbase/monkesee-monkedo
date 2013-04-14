@@ -34,8 +34,30 @@ Prost::Application.routes.draw do
    ## resources :bookmarks
   end
 
+  #############################
+  # routes for mobile / m
+
+  match 'm', :to => 'mobile/pages#home'
+
+  namespace :mobile do
+    match 'signin',  :to => 'sessions#new'
+    match 'signout', :to => 'sessions#destroy'
+
+    resource :session, :only => [:new, :create, :destroy]
+
+    match 'time',   :to => 'time#index'
+
+    match 'bookmarks/:id/flag', :to => 'bookmarks#update_flag', :as => 'update_bookmark_flag'
+
+    resources :users
+    resources :drinks
+    resources :bookmarks
+    resources :beers
+  end
+
+
   #############
-  ## routes for admin
+  # routes for admin
 
   match 'admin', :to => 'admin/users#index'
   
