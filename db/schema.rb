@@ -17,13 +17,15 @@ ActiveRecord::Schema.define(:version => 20120310174327) do
     t.string   "key",                           :null => false
     t.string   "title",                         :null => false
     t.string   "synonyms"
+    t.string   "web"
+    t.integer  "since"
     t.boolean  "bottle",     :default => false, :null => false
     t.boolean  "draft",      :default => false, :null => false
     t.boolean  "seasonal",   :default => false, :null => false
     t.decimal  "kcal"
     t.decimal  "abv"
-    t.decimal  "plato"
-    t.integer  "color"
+    t.decimal  "og"
+    t.integer  "srm"
     t.integer  "brewery_id"
     t.integer  "country_id",                    :null => false
     t.integer  "region_id"
@@ -48,7 +50,10 @@ ActiveRecord::Schema.define(:version => 20120310174327) do
     t.string   "title",      :null => false
     t.string   "synonyms"
     t.string   "address"
-    t.integer  "founded"
+    t.integer  "since"
+    t.integer  "closed"
+    t.integer  "prod"
+    t.string   "web"
     t.integer  "country_id", :null => false
     t.integer  "region_id"
     t.integer  "city_id"
