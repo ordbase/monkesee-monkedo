@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/geraldb/beer.db.git
-  revision: 8293683aa8f6a8719187744c303382d2277b5025
+  revision: 812068dec73b804a382ae2c4138f4cc2d19a9561
   specs:
     beerdb-data (99)
 
@@ -42,7 +42,7 @@ GEM
       multi_json (~> 1.0)
     annotate (2.4.1.beta1)
     arel (3.0.2)
-    beerdb (0.6.3)
+    beerdb (0.6.4)
       activerecord (~> 3.2)
       commander (~> 4.1.3)
       worlddb (~> 1.6)
@@ -152,7 +152,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (~> 2.4.1.beta)
-  beerdb (= 0.6.3)
+  beerdb (= 0.6.4)
   beerdb-data (= 99)!
   bourbon (= 1.4.0)
   coffee-rails (~> 3.2.1)
