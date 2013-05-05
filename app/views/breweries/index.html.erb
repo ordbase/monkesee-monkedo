@@ -1,6 +1,15 @@
 
 <h3><%= @breweries.count %> Breweries</h3>
 
+<p>
+  Sort By: <%= link_to 'Key A-Z', breweries_path( order: 'key' ) %>
+          &bull;
+        <%= link_to 'Title A-Z', breweries_path( order: 'title' ) %>
+          &bull;
+        <%= link_to 'Production/Capacity (in hl)', breweries_path( order: 'hl' ) %>
+</p>
+
+
 <table>
 <% @breweries.each do |brewery| %>
 <tr>
@@ -17,18 +26,9 @@
     <% if brewery.synonyms.present? %>
        | <%= brewery.synonyms %>
     <% end %>
-    
-<% if brewery.tags.count > 0 %>
-    <span class='tags'>
-    <% brewery.tags.each_with_index do |tag,i| %>
-      <% if i > 0 %>
-         &bull; 
-       <% end %>
-       <%= tag.key %>
-    <% end %>
-    </span>
-<% end %>
-    
+
+    <%= render_brewery_tags( brewery ) %>
+
   </td>
   <td>
     <% if brewery.city.present? %>

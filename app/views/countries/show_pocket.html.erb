@@ -7,39 +7,25 @@
 (<%= @country.code %>), 
 
  <%= @country.breweries.count %> Breweries,
- <%= @country.beers.count %> Beers
+ <%= @country.beers.count %> Beers   (Pocket)
 </h3>
 
 
 <p>
-  Sort By: <%= link_to 'Key A-Z', short_country_path( @country, order: 'key' ) %>
+  Sort By: <%= link_to 'Key A-Z', short_country_path( @country, style: 'pocket', order: 'key' ) %>
           &bull;
-        <%= link_to 'Title A-Z', short_country_path( @country, order: 'title' ) %>
+        <%= link_to 'Title A-Z', short_country_path( @country, style: 'pocket', order: 'title' ) %>
           &bull;
-        <%= link_to 'Address', short_country_path( @country, order: 'adr' ) %>
+        <%= link_to 'Address', short_country_path( @country, style: 'pocket', order: 'adr' ) %>
           &bull;
-        <%= link_to 'Production/Capacity (in hl)', short_country_path( @country, order: 'hl' ) %>
+        <%= link_to 'Production/Capacity (in hl)', short_country_path( @country, style: 'pocket', order: 'hl' ) %>
 
-   | Style: <%= link_to 'Pocket', short_country_path( @country, style: 'pocket' ) %>
+   | Style: <%= link_to 'Standard', short_country_path( @country ) %>
 
 </p>
 
-<table>
 
-  <%
-      beers_missing_breweries = @country.beers.where( 'brewery_id is null' ).order( @order_clause )
-      beers_missing_breweries_count = beers_missing_breweries.count
-  
-      if beers_missing_breweries_count > 0
-   %>
-   <tr>
-     <td><b>Uncategorized</b></td>
-     <td></td>
-      <td style='vertical-align: baseline;'>
-        <%= render_beers( beers_missing_breweries ) %>
-      </td>
-   </tr>
-   <% end %>
+<table>
 
 
 <!-- for now add section for uncategorized breweries (e.g. w/o region; region missing)
@@ -63,16 +49,6 @@
    <% breweries_missing_regions.each do |brewery| %>
     <tr>
       <td style='vertical-align: baseline;'>
-        <%= brewery.title %>
-          
-          || <%= brewery.founded %>
-          <%= render_brewery_tags( brewery ) %>
-          <br>
-          <span class='city-count'>
-          <%= brewery.address %>
-          </span>
-      </td>
-      <td style='vertical-align: baseline;'>
         <span class='city-count'>
           <% if brewery.web.present? %>
             <%= link_to brewery.web, "http://#{brewery.web}" %>
@@ -80,12 +56,18 @@
         </span>
       </td>
       <td style='vertical-align: baseline;'>
-        <%= render_beers( brewery.beers ) %>
+        <%= brewery.title %>
+          
+          || <%= brewery.founded %>
+          ||
+          <span class='city-count'>
+          <%= brewery.address %>
+          </span>
+          || <%= render_brewery_tags( brewery ) %>
       </td>
     </tr>
    <% end %><!-- each brewery -->
    <% end %><!-- if breweries_missing_regions_count > 0 -->
-
 
 
   <% @country.regions.each do |region| %>
@@ -106,16 +88,6 @@
    <% region.breweries.order( @order_clause ).each do |brewery| %>
     <tr>
       <td style='vertical-align: baseline;'>
-        <%= brewery.title %>
-          
-          || <%= brewery.founded %>
-          <%= render_brewery_tags( brewery ) %>
-          <br>
-          <span class='city-count'>
-          <%= brewery.address %>
-          </span>
-      </td>
-      <td style='vertical-align: baseline;'>
         <span class='city-count'>
           <% if brewery.web.present? %>
             <%= link_to brewery.web, "http://#{brewery.web}" %>
@@ -123,11 +95,17 @@
         </span>
       </td>
       <td style='vertical-align: baseline;'>
-        <%= render_beers( brewery.beers ) %>
+        <%= brewery.title %>
+          
+          || <%= brewery.founded %>
+          ||
+          <span class='city-count'>
+          <%= brewery.address %>
+          </span>
+          || <%= render_brewery_tags( brewery ) %>
       </td>
     </tr>
    <% end %><!-- each brewery -->
   <% end %> <!-- each region -->
-
 
 </table>

@@ -72,6 +72,7 @@ Prost::Application.routes.draw do
   mount BeerDb::Server, :at => '/api/v1' # NB: make sure to require 'beerdb/server' in env
 
   resources :beers
+  resources :brands
   resources :breweries
   resources :countries
   resources :regions
