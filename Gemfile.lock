@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/geraldb/beer.db.git
-  revision: 3d2b7901c784bf6cff7b263d953e53294d972a80
+  revision: db9ac7b94282092529e22edf1c3e20594add9b69
   specs:
     beerdb-data (99)
 
