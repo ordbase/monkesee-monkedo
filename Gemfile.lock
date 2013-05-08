@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/geraldb/beer.db.git
-  revision: a1113145e9235250ad42b17bf2d1e4586786e721
+  revision: 9ee512ec0c7c6bd16f7b4b819e4d90a96728965a
   specs:
     beerdb-data (99)
 
@@ -42,7 +42,7 @@ GEM
       multi_json (~> 1.0)
     annotate (2.4.1.beta1)
     arel (3.0.2)
-    beerdb (0.6.5)
+    beerdb (0.6.6)
       activerecord (~> 3.2)
       commander (~> 4.1.3)
       worlddb (~> 1.6)
@@ -125,7 +125,7 @@ GEM
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.7)
     sqlite3 (1.3.7-x86-mingw32)
-    textutils (0.5.9)
+    textutils (0.5.10)
       logutils (~> 0.5)
     thin (1.5.1)
       daemons (>= 1.0.9)
@@ -152,7 +152,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (~> 2.4.1.beta)
-  beerdb (= 0.6.5)
+  beerdb (= 0.6.6)
   beerdb-data (= 99)!
   bourbon (= 1.4.0)
   coffee-rails (~> 3.2.1)
