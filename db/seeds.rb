@@ -1,62 +1,51 @@
+####
+# e.g. use like
+#   rake db:seed WORLD=f   or
+#   rake db:seed WORLDDB=skip
 
+skip_worlddb_str =  ENV['WORLD'] || ENV['WORLDDB']
 
-LogDb.delete!
-WorldDb.delete!  # danger zone! deletes all records
-BeerDb.delete!  # danger zone! deletes all records
-
-WorldDb.read_all( find_world_db_path_from_gemfile_gitref! )
-
-
-## fix: move to beerdb gem -?
-
-## fix: use a "generic" method
-## just pass in 'beer.db'
-## e.g. find_path_from_gemfile_gitref!( 'beer.db' )
-
-def find_beer_db_path_from_gemfile_gitref!
-  puts "[debug] find_beer_db_path..."
-  puts "load path:"
-  pp $LOAD_PATH
-  
-  candidates = []
-  $LOAD_PATH.each do |path|
-    if path =~ /\/(beer\.db-[a-z0-9]+)|(beer\.db)\//
-      candidates << path.dup
-    end
-  end
-  
-  puts "found candidates:"
-  pp candidates
-  
-  ## cut-off everything after /beer.db
-  # e.g. lib/ruby/gems/1.9.1/bundler/gems/beer.db-38279c414449/lib becomes
-  #      lib/ruby/gems/1.9.1/bundler/gems/beer.db-38279c414449
-  
-  cand = candidates[0]
-  
-  puts "cand before: #{cand}"
-  
-  ## nb: *? is non-greedy many operator
-  
-  ## todo: why not just cut off trailing /lib - is it good enough??
-  # it's easier
-  
-  regex = /(\/beer\.db.*?)(\/.*)/
-  cand = cand.sub( regex ) do |_|
-    puts "cutting off >>#{$2}<<"
-    $1
-  end
-  
-  puts "cand after: #{cand}"
-  
-  ## todo:exit with error if not found!!!
-  
-  cand
+if skip_worlddb_str.present? && ['f', 'false', 'skip'].include?( skip_worlddb_str )
+  skip_worlddb = true
+  puts 'skipping setup for world.db'
+else
+  skip_worlddb = false
 end
 
 
-BeerDb.read_all( find_beer_db_path_from_gemfile_gitref! )
+LogDb.delete!
+WorldDb.delete!  unless skip_worlddb    # danger zone! deletes all records
+BeerDb.delete!  # danger zone! deletes all records
 
-## BeerDb.read_setup( 'setups/all', find_football_db_path_from_gemfile_gitref! )
+
+
+WorldDb.read_setup( 'setups/sport.db.admin', find_data_path_from_gemfile_gitref('world.db'), { skip_tags: true } )  unless skip_worlddb
+
+
+
+beerdb_setups = []
+
+beerdb_setups +=[
+  ['world',                      'all'],
+  ['de-deutschland',             'all'],
+  ['at-austria',                 'all'],
+  ['ch-confoederatio-helvetica', 'all'],
+  ['cz-czech-republic',          'all'],
+  ['be-belgium',                 'all'],
+  ['nl-netherlands',             'all'],
+  ['ie-ireland',                 'all'],
+  ['ca-canada',                  'all'],
+  ['us-united-states',           'all'],
+  ['mx-mexico',                  'all'],
+  ['jp-japan',                   'all']
+]
+
+
+beerdb_setups.each do |setup|
+  BeerDb.read_setup( "setups/#{setup[1]}", find_data_path_from_gemfile_gitref( setup[0]) )
+end
 
 BeerDb.tables
+
+puts 'Done. Bye.'
+

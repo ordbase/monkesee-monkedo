@@ -1,12 +1,78 @@
 GIT
-  remote: https://github.com/geraldb/beer.db.git
-  revision: 9ee512ec0c7c6bd16f7b4b819e4d90a96728965a
+  remote: https://github.com/openbeer/at-austria.git
+  revision: 59b112f3c9b792aadf5edd1136c7d42a6e0d47a4
   specs:
-    beerdb-data (99)
+    beerdb-data-at (99)
 
 GIT
-  remote: https://github.com/geraldb/world.db.git
-  revision: 594ddcbaec5e769979686d16641086ca868c1595
+  remote: https://github.com/openbeer/be-belgium.git
+  revision: 8000c0b39d057a33ed56326a1704b5bc57186e50
+  specs:
+    beerdb-data-be (99)
+
+GIT
+  remote: https://github.com/openbeer/ca-canada.git
+  revision: ec0545192fe304012ea8ca48e65002c3d084e01f
+  specs:
+    beerdb-data-ca (99)
+
+GIT
+  remote: https://github.com/openbeer/ch-confoederatio-helvetica.git
+  revision: 72c8da1971fd39fe7961a615a33d0ddeabf039c2
+  specs:
+    beerdb-data-ch (99)
+
+GIT
+  remote: https://github.com/openbeer/cz-czech-republic.git
+  revision: c273648c135e383803f8b27ef396c3b51a3f4b64
+  specs:
+    beerdb-data-cz (99)
+
+GIT
+  remote: https://github.com/openbeer/de-deutschland.git
+  revision: 98a916c53f0e561700c859b5bd0b5fd26c61eaf9
+  specs:
+    beerdb-data-de (99)
+
+GIT
+  remote: https://github.com/openbeer/ie-ireland.git
+  revision: fe02a2220f62c01e84b7464c30e4c69199d5db78
+  specs:
+    beerdb-data-ie (99)
+
+GIT
+  remote: https://github.com/openbeer/jp-japan.git
+  revision: 6b32c993d87d387b4b009874713d826b32417b38
+  specs:
+    beerdb-data-jp (99)
+
+GIT
+  remote: https://github.com/openbeer/mx-mexico.git
+  revision: d3557603b2eb4125a40d16174a76309ae92d1c24
+  specs:
+    beerdb-data-mx (99)
+
+GIT
+  remote: https://github.com/openbeer/nl-netherlands.git
+  revision: 7e3b60a2d624f507c4f294df2391adcad76ee3c0
+  specs:
+    beerdb-data-nl (99)
+
+GIT
+  remote: https://github.com/openbeer/us-united-states.git
+  revision: 0b9844b3c54401a3884b2726c9bf6290259e07df
+  specs:
+    beerdb-data-us (99)
+
+GIT
+  remote: https://github.com/openbeer/world.git
+  revision: a9ec68b33836f63ced84b3c04066ef0472721498
+  specs:
+    beerdb-data-world (99)
+
+GIT
+  remote: https://github.com/openmundi/world.db.git
+  revision: cfc7d7f63dafb84ee2a82642b33c46430e721a9b
   specs:
     worlddb-data (99)
 
@@ -41,11 +107,11 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     annotate (2.4.1.beta1)
-    arel (3.0.2)
-    beerdb (0.6.6)
+    arel (3.0.3)
+    beerdb (0.9.0)
       activerecord (~> 3.2)
-      commander (~> 4.1.3)
-      worlddb (~> 1.6)
+      gli (>= 2.5.6)
+      worlddb (~> 1.8)
     bourbon (1.4.0)
       sass (>= 3.1)
     builder (3.0.4)
@@ -55,37 +121,37 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.6.2)
-    commander (4.1.3)
+    coffee-script-source (1.6.3)
+    commander (4.1.5)
       highline (~> 1.6.11)
     daemons (1.1.9)
     erubis (2.7.0)
     eventmachine (1.0.3)
     eventmachine (1.0.3-x86-mingw32)
-    execjs (1.4.0)
-      multi_json (~> 1.0)
-    highline (1.6.18)
-    hike (1.2.2)
-    i18n (0.6.4)
+    execjs (2.0.2)
+    gli (2.9.0)
+    highline (1.6.20)
+    hike (1.2.3)
+    i18n (0.6.9)
     journey (1.0.4)
-    jquery-rails (2.2.1)
+    jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    json (1.7.7)
+    json (1.8.1)
     logutils (0.6.0)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mime-types (1.23)
-    multi_json (1.7.3)
-    pg (0.15.1)
-    pg (0.15.1-x86-mingw32)
+    mime-types (1.25.1)
+    multi_json (1.8.4)
+    pg (0.17.1)
+    pg (0.17.1-x86-mingw32)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
-    rack-protection (1.5.0)
+    rack-protection (1.5.2)
       rack
     rack-ssl (1.3.3)
       rack
@@ -106,44 +172,44 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
-    rake (10.0.4)
+    rake (10.1.1)
     rdoc (3.12.2)
       json (~> 1.4)
-    sass (3.2.8)
+    sass (3.2.13)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    sinatra (1.3.6)
+    sinatra (1.4.4)
       rack (~> 1.4)
-      rack-protection (~> 1.3)
-      tilt (~> 1.3, >= 1.3.3)
+      rack-protection (~> 1.4)
+      tilt (~> 1.3, >= 1.3.4)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.7)
-    sqlite3 (1.3.7-x86-mingw32)
-    textutils (0.5.10)
+    sqlite3 (1.3.8)
+    sqlite3 (1.3.8-x86-mingw32)
+    textutils (0.8.1)
       logutils (~> 0.5)
-    thin (1.5.1)
+    thin (1.6.1)
       daemons (>= 1.0.9)
-      eventmachine (>= 0.12.6)
+      eventmachine (>= 1.0.0)
       rack (>= 1.0.0)
     thor (0.18.1)
-    tilt (1.4.0)
-    treetop (1.4.12)
+    tilt (1.4.1)
+    treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.37)
-    uglifier (2.0.1)
+    tzinfo (0.3.38)
+    uglifier (2.4.0)
       execjs (>= 0.3.0)
-      multi_json (~> 1.0, >= 1.0.2)
-    worlddb (1.6.3)
+      json (>= 1.8.0)
+    worlddb (1.8.2)
       activerecord (~> 3.2)
       commander (~> 4.1.3)
-      textutils (~> 0.5)
+      textutils (~> 0.6)
     worlddb-flags (0.1.0)
 
 PLATFORMS
@@ -152,12 +218,23 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (~> 2.4.1.beta)
-  beerdb (= 0.6.6)
-  beerdb-data (= 99)!
+  beerdb (= 0.9.0)
+  beerdb-data-at (= 99)!
+  beerdb-data-be (= 99)!
+  beerdb-data-ca (= 99)!
+  beerdb-data-ch (= 99)!
+  beerdb-data-cz (= 99)!
+  beerdb-data-de (= 99)!
+  beerdb-data-ie (= 99)!
+  beerdb-data-jp (= 99)!
+  beerdb-data-mx (= 99)!
+  beerdb-data-nl (= 99)!
+  beerdb-data-us (= 99)!
+  beerdb-data-world (= 99)!
   bourbon (= 1.4.0)
   coffee-rails (~> 3.2.1)
   jquery-rails
-  logutils (= 0.6.0)
+  logutils
   pg
   rails (= 3.2.12)
   sass-rails (~> 3.2.3)
@@ -165,6 +242,6 @@ DEPENDENCIES
   sqlite3
   thin
   uglifier (>= 1.0.3)
-  worlddb (= 1.6.3)
+  worlddb (= 1.8.2)
   worlddb-data (= 99)!
   worlddb-flags (= 0.1.0)

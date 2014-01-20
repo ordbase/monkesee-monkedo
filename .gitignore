@@ -14,8 +14,6 @@
 /log/*.log
 /tmp
 
-# Ignore komodo project files
-*.kpf
 
 ################
 # Ignore dbs in db folder

@@ -6,13 +6,32 @@ gem 'sinatra'   # NB: used for logutils (server/service)
 
 gem 'bourbon', '1.4.0' # scss mixins (see http://thoughtbot.com/bourbon)
 
-gem 'logutils', '0.6.0'
+gem 'logutils'
+gem 'worlddb', '1.8.2'
+gem 'beerdb',  '0.9.0'
 
-gem 'worlddb-data', '99', :git => 'https://github.com/geraldb/world.db.git'
-gem 'beerdb-data', '99', :git => 'https://github.com/geraldb/beer.db.git'
 
-gem 'worlddb', '1.6.3'
-gem 'beerdb', '0.6.6'
+#########################3
+# data
+
+gem 'worlddb-data', '99', :git => 'https://github.com/openmundi/world.db.git'
+
+gem 'beerdb-data-world', '99', :git => 'https://github.com/openbeer/world.git'
+gem 'beerdb-data-de',    '99', :git => 'https://github.com/openbeer/de-deutschland.git'
+gem 'beerdb-data-at',    '99', :git => 'https://github.com/openbeer/at-austria.git'
+gem 'beerdb-data-ch',    '99', :git => 'https://github.com/openbeer/ch-confoederatio-helvetica.git'
+gem 'beerdb-data-cz',    '99', :git => 'https://github.com/openbeer/cz-czech-republic.git'
+gem 'beerdb-data-be',    '99', :git => 'https://github.com/openbeer/be-belgium.git'
+gem 'beerdb-data-nl',    '99', :git => 'https://github.com/openbeer/nl-netherlands.git'
+gem 'beerdb-data-ie',    '99', :git => 'https://github.com/openbeer/ie-ireland.git'
+gem 'beerdb-data-ca',    '99', :git => 'https://github.com/openbeer/ca-canada.git'
+gem 'beerdb-data-us',    '99', :git => 'https://github.com/openbeer/us-united-states.git'
+gem 'beerdb-data-mx',    '99', :git => 'https://github.com/openbeer/mx-mexico.git'
+gem 'beerdb-data-jp',    '99', :git => 'https://github.com/openbeer/jp-japan.git'
+
+
+##################################
+# logos
 
 gem 'worlddb-flags', '0.1.0'   # use bundled country flags
 

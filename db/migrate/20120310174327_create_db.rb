@@ -5,6 +5,7 @@ class CreateDb < ActiveRecord::Migration
     WorldDb.create
     BeerDb.create
 
+=begin
     create_table :users do |t|
       t.string  :key,    :null => false   # import/export key
       t.string  :name,   :null => false
@@ -37,6 +38,7 @@ class CreateDb < ActiveRecord::Migration
       
       t.timestamps
     end
+=end
 
   end # method up
 

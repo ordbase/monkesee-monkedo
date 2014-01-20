@@ -1,2 +1,2 @@
 
-Country = WorldDb::Models::Country
+Country = WorldDb::Model::Country

@@ -1,2 +1,2 @@
 
-Prop = WorldDb::Models::Prop
+Prop = WorldDb::Model::Prop

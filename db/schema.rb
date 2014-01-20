@@ -19,14 +19,18 @@ ActiveRecord::Schema.define(:version => 20120310174327) do
     t.string   "synonyms"
     t.string   "web"
     t.integer  "since"
-    t.boolean  "bottle",     :default => false, :null => false
-    t.boolean  "draft",      :default => false, :null => false
     t.boolean  "seasonal",   :default => false, :null => false
+    t.boolean  "limited",    :default => false, :null => false
     t.decimal  "kcal"
     t.decimal  "abv"
     t.decimal  "og"
     t.integer  "srm"
+    t.integer  "ibu"
     t.integer  "brewery_id"
+    t.integer  "brand_id"
+    t.integer  "grade",      :default => 4,     :null => false
+    t.string   "txt"
+    t.boolean  "txt_auto",   :default => false, :null => false
     t.integer  "country_id",                    :null => false
     t.integer  "region_id"
     t.integer  "city_id"
@@ -45,20 +49,55 @@ ActiveRecord::Schema.define(:version => 20120310174327) do
     t.datetime "updated_at",                           :null => false
   end
 
+  create_table "brands", :force => true do |t|
+    t.string   "key",                           :null => false
+    t.string   "title",                         :null => false
+    t.string   "synonyms"
+    t.string   "web"
+    t.string   "wiki"
+    t.integer  "since"
+    t.boolean  "global",     :default => false, :null => false
+    t.boolean  "internl",    :default => false, :null => false
+    t.boolean  "national",   :default => false, :null => false
+    t.boolean  "regional",   :default => false, :null => false
+    t.boolean  "local",      :default => false, :null => false
+    t.integer  "grade",      :default => 4,     :null => false
+    t.string   "txt"
+    t.boolean  "txt_auto",   :default => false, :null => false
+    t.integer  "brewery_id"
+    t.integer  "country_id",                    :null => false
+    t.integer  "region_id"
+    t.integer  "city_id"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
   create_table "breweries", :force => true do |t|
-    t.string   "key",        :null => false
-    t.string   "title",      :null => false
+    t.string   "key",                            :null => false
+    t.string   "title",                          :null => false
     t.string   "synonyms"
     t.string   "address"
     t.integer  "since"
     t.integer  "closed"
     t.integer  "prod"
+    t.integer  "prod_grade"
+    t.integer  "grade",       :default => 4,     :null => false
+    t.string   "txt"
+    t.boolean  "txt_auto",    :default => false, :null => false
     t.string   "web"
-    t.integer  "country_id", :null => false
+    t.string   "wikipedia"
+    t.boolean  "indie"
+    t.boolean  "abinbev"
+    t.boolean  "sabmiller"
+    t.boolean  "heineken"
+    t.boolean  "carlsberg"
+    t.boolean  "molsoncoors"
+    t.boolean  "diageo"
+    t.integer  "country_id",                     :null => false
     t.integer  "region_id"
     t.integer  "city_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "cities", :force => true do |t|
@@ -119,8 +158,7 @@ ActiveRecord::Schema.define(:version => 20120310174327) do
   create_table "drinks", :force => true do |t|
     t.integer  "beer_id",    :null => false
     t.integer  "user_id",    :null => false
-    t.integer  "rating"
-    t.text     "comments"
+    t.datetime "drunk_at"
     t.string   "place"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -141,6 +179,16 @@ ActiveRecord::Schema.define(:version => 20120310174327) do
     t.integer  "pid"
     t.integer  "tid"
     t.string   "ts"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "notes", :force => true do |t|
+    t.integer  "beer_id",    :null => false
+    t.integer  "user_id",    :null => false
+    t.integer  "rating",     :null => false
+    t.text     "comments"
+    t.string   "place"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

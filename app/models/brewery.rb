@@ -1,2 +1,2 @@
 
-Brewery = BeerDb::Models::Brewery
+Brewery = BeerDb::Model::Brewery
