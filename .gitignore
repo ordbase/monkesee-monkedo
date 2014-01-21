@@ -19,5 +19,7 @@
 # Ignore dbs in db folder
 
 db/*.db
+db/*.db-journal
 db/*.sqlite3
+
 

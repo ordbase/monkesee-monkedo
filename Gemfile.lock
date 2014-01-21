@@ -6,7 +6,7 @@ GIT
 
 GIT
   remote: https://github.com/openbeer/be-belgium.git
-  revision: 8000c0b39d057a33ed56326a1704b5bc57186e50
+  revision: 6f0aeaa729cbf2eba2f790520fb4ea558808a3ba
   specs:
     beerdb-data-be (99)
 
@@ -108,7 +108,7 @@ GEM
       multi_json (~> 1.0)
     annotate (2.4.1.beta1)
     arel (3.0.3)
-    beerdb (0.9.0)
+    beerdb (0.9.1)
       activerecord (~> 3.2)
       gli (>= 2.5.6)
       worlddb (~> 1.8)
@@ -218,7 +218,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (~> 2.4.1.beta)
-  beerdb (= 0.9.0)
+  beerdb (= 0.9.1)
   beerdb-data-at (= 99)!
   beerdb-data-be (= 99)!
   beerdb-data-ca (= 99)!
