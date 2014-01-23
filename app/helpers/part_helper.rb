@@ -23,4 +23,13 @@ module PartHelper
   end
 
 
+  def render_breweries_for_region( region )
+    render partial: 'shared/breweries_for_region', locals: { region: region }
+  end
+
+  def render_breweries_for_country( country )
+    render partial: 'shared/breweries_for_country', locals: { country: country }
+  end
+
+
 end # PartHelper
