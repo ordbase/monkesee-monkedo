@@ -8,7 +8,7 @@ gem 'bourbon', '1.4.0' # scss mixins (see http://thoughtbot.com/bourbon)
 
 gem 'logutils'
 gem 'worlddb', '1.8.2'
-gem 'beerdb',  '0.9.1'
+gem 'beerdb',  '0.9.2'
 
 
 #########################3
