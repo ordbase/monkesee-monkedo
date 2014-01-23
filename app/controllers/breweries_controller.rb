@@ -12,7 +12,15 @@ class BreweriesController < ApplicationController
       order_clause = 'title'
     end
     
-    @breweries = Brewery.order( order_clause )
+    # note:  show 25 per page for now
+
+    @breweries = Brewery.limit(25).order( order_clause )
   end
+
+  # GET /breweries/:id e.g. /breweries/1
+  def show
+    @brewery = Brewery.find( params[:id] )
+  end
+
 
 end # class BreweriesController

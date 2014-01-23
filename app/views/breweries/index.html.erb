@@ -1,5 +1,6 @@
 
-<h3><%= @breweries.count %> Breweries</h3>
+<h3><%= Brewery.count %> Breweries</h3>
+<!-- todo: add display/page count e.g. 25 -->
 
 <p>
   Sort By: <%= link_to 'Key A-Z', breweries_path( order: 'key' ) %>
@@ -22,7 +23,7 @@
 <% end %>
 
   <td>
-    <%= brewery.title %>
+    <%= link_to brewery.title, brewery_path( brewery.id ) %>
     <% if brewery.synonyms.present? %>
        | <%= brewery.synonyms %>
     <% end %>

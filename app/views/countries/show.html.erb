@@ -63,7 +63,7 @@
    <% breweries_missing_regions.each do |brewery| %>
     <tr>
       <td style='vertical-align: baseline;'>
-        <%= brewery.title %>
+        <%= link_to brewery.title, brewery_path( brewery.id ) %>
           
           | <%= brewery.founded %>
           <%= render_brewery_tags( brewery ) %>
@@ -106,8 +106,8 @@
    <% region.breweries.order( @order_clause ).each do |brewery| %>
     <tr>
       <td style='vertical-align: baseline;'>
-        <%= brewery.title %>
-          
+        <%= link_to brewery.title, brewery_path( brewery.id ) %>
+   
           | <%= brewery.founded %>
           <%= render_brewery_tags( brewery ) %>
           <br>

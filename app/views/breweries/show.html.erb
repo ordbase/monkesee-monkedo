@@ -1,0 +1,80 @@
+<% brewery = @brewery %>
+
+<span class='brewery-key'><%= brewery.key %></span>
+
+<h3 style='margin-top: 0;'>
+  <%= brewery.title %>
+
+  <% if brewery.synonyms.present? %>
+   &bull; <%= brewery.synonyms %>
+  <% end %>
+
+  /
+  <%= image_tag_for_country( brewery.country ) %>
+  <%= link_to brewery.country.title, short_country_path( brewery.country ) %>
+</h3>
+
+<p>
+     <%= brewery.founded %> ||
+     <%= brewery.address %>
+</p>
+
+
+<% if brewery.tags.count > 0 %>
+<p>
+  <%= render_tags( brewery.tags ) %>
+</p>
+<% end %>
+
+
+
+<!-- add all breweries in region -->
+
+<!-- fix: if no region present
+   list all breweries of country!!!
+   -->
+   
+<% if brewery.region.present? %>
+
+<hr>
+
+<% breweries_count = brewery.region.breweries.count
+   if breweries_count > 0 %>
+<p>
+    <span class='region-key'><%= brewery.region.key %></span>
+    <%= brewery.region.title %>
+    <span class='beer-count'>(<%= breweries_count %>)</span>
+</p>
+
+<tr>
+  <td>
+    <% brewery.region.breweries.order(:title).each_with_index do |brewery,i| %>
+       <% if i > 0 %>
+         &bull; 
+       <% end %>
+       <%= link_to brewery.title, brewery_path( brewery.id ) %>
+    <% end %>
+  </td>
+</tr>
+<% end %><!-- if breweries_count > 0 -->
+<% end %><!-- if brewery.region.present? -->
+
+
+<hr>
+
+<p>
+  <% if brewery.city.present? %>
+      <%= brewery.city.title %>
+  <% else %>
+      -
+  <% end %>
+    /
+    <% if brewery.region.present? %>
+      <%= brewery.region.title %>
+    <% else %>
+      -
+    <% end %>
+    /
+  <%= image_tag_for_country( brewery.country ) %>
+  <%= link_to brewery.country.title, short_country_path( brewery.country ) %>
+</p>

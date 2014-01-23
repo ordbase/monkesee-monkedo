@@ -2,7 +2,8 @@
 class BeersController < ApplicationController
   
   def index
-    @beers = Beer.all
+    # note: show 25 per page for now
+    @beers = Beer.limit( 25 )
   end
   
   # GET /beers/:id e.g. /beers/1
