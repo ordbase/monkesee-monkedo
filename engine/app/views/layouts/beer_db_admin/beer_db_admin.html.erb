@@ -2,7 +2,7 @@
 <html>
 <head>
   <!-- check/fix: needs beer_db_admin reference ?? -->
-  <%= render partial: 'layouts/header' %>
+  <%= render partial: 'layouts/beer_db_admin/header' %>
 </head>
 <body>
 
@@ -65,7 +65,7 @@
 
 <div class='content' style='padding: 0px 20px 0px 20px;'>
 
-  <%= render partial: 'layouts/flash', locals: { flash: flash } %>
+  <%= render partial: 'layouts/beer_db_admin/flash', locals: { flash: flash } %>
 
   <%= yield %>
 
