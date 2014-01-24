@@ -17,25 +17,6 @@
 </h3>
 
 
-<% if beer.tags.count > 0 %>
-<p>
-  <%= render_tags( beer.tags ) %>
-</p>
-<% end %>
-
-
-
-<% if beer.brewery.present? %>
-<p>
- By  <%= beer.brewery.title %> |
-     <%= beer.brewery.founded %> ||
-     <%= beer.brewery.address %>
-</p>
-<% else %>
-  <!-- nothing -->
-<% end %>
-
-
 
 <% if signed_in? %>
 <p>
@@ -45,21 +26,42 @@
 
 
 <p>
+    <!-- todo ? move synonyms up to header ???
+     -->
 <% if beer.synonyms.present? %>
    <%= beer.synonyms %> /
 <% end %>
      
 <% if beer.abv.present? %>
-  <%= beer.abv %>
+  Alk. <%= beer.abv %>
 <% else %>
   -
 <% end %>
   %
     
 <% if beer.plato.present? %>
-  &bull; <%= beer.plato %>°
+  &bull; <%= beer.plato %>° Plato
 <% end %>
+
+
+<% if beer.tags.count > 0 %>
+  /
+  <%= render_tags( beer.tags ) %>
+<% end %>
+
 </p>
+
+
+
+<% if beer.brewery.present? %>
+<p>
+ By  <%= link_to beer.brewery.title, brewery_path( beer.brewery.id ) %> |
+     <%= beer.brewery.founded %> ||
+     <%= beer.brewery.address %>
+</p>
+<% else %>
+  <!-- nothing -->
+<% end %>
 
 
 
@@ -97,9 +99,19 @@
 <% end %>
 
 
-<!-- fix:
-   add all beers of brewery!!!
-  -->
+
+<hr>
+<% if beer.brewery.present? %>
+<p>
+  <% beer.brewery.beers.order(:title).each_with_index do |beer,i| %>
+       <% if i > 0 %>
+         &bull;
+       <% end %>
+       <%= link_to beer.title, beer_path( beer.id ) %>
+  <% end %>
+</p>
+<% end %>
+
 
 <hr>
 <p>

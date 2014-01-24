@@ -11,7 +11,7 @@
 
 <tr>
   <td>
-    <% country.breweries.order(:title).each_with_index do |brewery,i| %>
+    <% country.breweries.order(:key).each_with_index do |brewery,i| %>
        <% if i > 0 %>
          &bull;
        <% end %>
