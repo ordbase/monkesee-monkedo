@@ -1,5 +1,8 @@
+# encoding: utf-8
 
-class BrandsController < ApplicationController
+module BeerDbAdmin
+
+class BrandsController < BeerDbAdminController
   
   def index
     @brands = Brand.all
@@ -13,3 +16,6 @@ class BrandsController < ApplicationController
 =end
 
 end # class BrandsController
+
+end # module BeerDbAdmin
+

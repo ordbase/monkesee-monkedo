@@ -1,5 +1,6 @@
 # encoding: utf-8
 
+module BeerDbAdmin
 module RoutesHelper
 
   ##############################
@@ -17,3 +18,4 @@ module RoutesHelper
 =end
 
 end # module RoutesHelper
+end # moudle BeerDbAdmin

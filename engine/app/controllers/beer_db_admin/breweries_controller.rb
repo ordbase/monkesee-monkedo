@@ -1,5 +1,8 @@
+# encoding: utf-8
 
-class BreweriesController < ApplicationController
+module BeerDbAdmin
+
+class BreweriesController < BeerDbAdminController
   
   def index
     order = params[:order] || 'title'
@@ -24,3 +27,5 @@ class BreweriesController < ApplicationController
 
 
 end # class BreweriesController
+
+end # module BeerDbAdmin

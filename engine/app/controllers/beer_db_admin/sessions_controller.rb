@@ -1,6 +1,8 @@
 # encoding: utf-8
 
-class SessionsController < ApplicationController
+module BeerDbAdmin
+
+class SessionsController < BeerDbAdminController
   
   # GET /session/new
   def new
@@ -47,3 +49,5 @@ class SessionsController < ApplicationController
     redirect_to signin_path()
   end
 end
+
+end # module BeerDbAdmin

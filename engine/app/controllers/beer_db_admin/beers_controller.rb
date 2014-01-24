@@ -1,5 +1,8 @@
+# encoding: utf-8
 
-class BeersController < ApplicationController
+module BeerDbAdmin
+
+class BeersController < BeerDbAdminController
   
   def index
     # note: show 25 per page for now
@@ -12,3 +15,5 @@ class BeersController < ApplicationController
   end
 
 end # class BeersController
+
+end # module BeerDbAdmin

@@ -1,5 +1,8 @@
+# encoding: utf-8
 
-class CountriesController < ApplicationController
+module BeerDbAdmin
+
+class CountriesController < BeerDbAdminController
   
   def index
     @countries = Country.all
@@ -38,3 +41,6 @@ class CountriesController < ApplicationController
 
 
 end # class CountriesController
+
+end # module BeerDbAdmin
+

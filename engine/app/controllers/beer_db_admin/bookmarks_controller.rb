@@ -1,5 +1,8 @@
+# encoding: utf-8
 
-class BookmarksController < ApplicationController
+module BeerDbAdmin
+
+class BookmarksController < BeerDbAdminController
 
   def update_flag
 
@@ -40,3 +43,5 @@ class BookmarksController < ApplicationController
   end
 
 end # class BookmarksController
+
+end # module BeerDbAdmin

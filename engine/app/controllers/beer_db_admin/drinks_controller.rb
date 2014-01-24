@@ -1,6 +1,8 @@
+# encoding: utf-8
 
+module BeerDbAdmin
 
-class DrinksController < ApplicationController
+class DrinksController < BeerDbAdminController
 
   include ApplicationHelper   # fix: move current_user to application controller too
 
@@ -57,3 +59,5 @@ class DrinksController < ApplicationController
   end
 
 end # class DrinksController
+
+end # module BeerDbAdmin

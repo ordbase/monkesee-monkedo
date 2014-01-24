@@ -1,5 +1,6 @@
 # encoding: utf-8
 
+module BeerDbAdmin
 module ApplicationHelper
 
   # todo/fix: try/polish breadcrumb helper
@@ -47,4 +48,5 @@ module ApplicationHelper
     end
   end
 
-end
+end # module ApplicationHelper
+end # module BeerDbAdmin

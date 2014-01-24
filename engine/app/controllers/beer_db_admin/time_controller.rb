@@ -1,7 +1,12 @@
+# encoding: utf-8
 
-class TimeController < ApplicationController
+module BeerDbAdmin
+
+class TimeController < BeerDbAdminController
 
   def index
   end
 
 end # class TimeController
+
+end # module BeerDbAdmin

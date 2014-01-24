@@ -1,5 +1,8 @@
+# encoding: utf-8
 
-class FrontpageController < ApplicationController
+module BeerDbAdmin
+
+class FrontpageController < BeerDbAdminController
 
   include ApplicationHelper
 
@@ -8,3 +11,5 @@ class FrontpageController < ApplicationController
   end
 
 end # class FrontpageController
+
+end # module BeerDbAdmin
