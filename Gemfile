@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
 
-gem 'sinatra'   # NB: used for logutils (server/service)
+gem 'sinatra', require: 'sinatra/base'
+
 
 gem 'bourbon', '1.4.0' # scss mixins (see http://thoughtbot.com/bourbon)
 
@@ -34,6 +35,22 @@ gem 'beerdb-data-jp',    '99', :git => 'https://github.com/openbeer/jp-japan.git
 # logos
 
 gem 'worlddb-flags', '0.1.0'   # use bundled country flags
+
+
+
+
+########
+# add engines
+
+gem 'beerdb-admin', '0.0.1', path: './engine'
+
+##########
+# add sinatra (mountable) app(let)s
+
+gem 'about'      # mountable app - about - sys info pages
+gem 'dbbrowser'  # mountable app
+
+
 
 
 group :production do
