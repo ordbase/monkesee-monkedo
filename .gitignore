@@ -20,4 +20,9 @@ db/*.db-journal
 db/*.sqlite3
 
 
+# Ignore gem artifacts/outputs in subfolder
+
+/engine/pkg
+/engine/pkg/*
+
 
