@@ -20,7 +20,7 @@ on Heroku [`prost.herokuapp.com`](http://prost.herokuapp.com).
 
 In your routes (`config/routes.rb`) mount the beer.db.admin app; add the line:
 
-    mount BeerDbAdmin::Server, :at => '/db'
+    mount BeerDbAdmin::Engine, :at => '/db'
 
 
 ## License
