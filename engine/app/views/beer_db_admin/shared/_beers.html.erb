@@ -6,7 +6,7 @@
   <% if i > 0 %>
     &bull; 
   <% end %>
-  <%= link_to beer.title, beer_path(beer.id) %>
+  <%= link_to beer.title, short_beer_path( beer ) %>
 <% end %><!-- each beer -->
 </span>
 

@@ -1,9 +1,12 @@
+<% beers = @beers
+ %>
+
 
 <h3><%= Beer.count %> Beers</h3>
 <!-- todo: add display/page count e.g. 25 -->
 
 <table>
-<% @beers.each do |beer| %>
+<% beers.each do |beer| %>
 <tr>
   <td class='beer-key'><%= beer.key %></td>
   
@@ -13,7 +16,8 @@
   </td>
 <% end %>
   
-  <td><%= link_to beer.title, beer_path( beer.id ) %>
+  <td>
+     <%= link_to_beer( beer ) %>
      <% if beer.synonyms.present? %>
        | <%= beer.synonyms %>
      <% end %>
@@ -30,23 +34,16 @@
      
      //
      <% if beer.brewery.present? %>
-       <%= beer.brewery.title %>
+       <%= link_to_brewery( beer.brewery ) %>
      <% else %>
        -
      <% end %>
-     
+
 <% if beer.tags.count > 0 %>
     <br>
-    <span class='tags'>
-    <% beer.tags.each_with_index do |tag,i| %>
-      <% if i > 0 %>
-         &bull; 
-       <% end %>
-       <%= tag.key %>
-    <% end %>
-    </span>
+    <%= render_tags( beer.tags ) %>
 <% end %>
-     
+
   </td>
   <td>
     <% if beer.city.present? %>
@@ -61,8 +58,7 @@
       -
     <% end %>
     /
-     <%= image_tag_for_country( beer.country ) %>
-     <%= link_to beer.country.title, short_country_path( beer.country ) %>
+     <%= link_to_country( beer.country, flag: true ) %>
    </td>
 </tr>
 

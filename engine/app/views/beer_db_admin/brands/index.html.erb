@@ -1,8 +1,11 @@
+<% brands = @brands
+ %>
+ 
+<h3><%= Brand.count %> Brands</h3>
 
-<h3><%= @brands.count %> Brands</h3>
 
 <table>
-<% @brands.each do |brand| %>
+<% brands.each do |brand| %>
 <tr>
   <td class='beer-key'><%= brand.key %></td>
     
@@ -13,7 +16,7 @@
      
      //
      <% if brand.brewery.present? %>
-       <%= brand.brewery.title %>
+       <%= link_to_brewery( brand.brewery ) %>
      <% else %>
        -
      <% end %>
@@ -27,13 +30,12 @@
     <% end %>
     /
     <% if brand.region.present? %>
-      <%= brand.region.title %>
+      <%= link_to_region( brand.region ) %>
     <% else %>
       -
     <% end %>
     /
-     <%= image_tag_for_country( brand.country ) %>
-     <%= link_to brand.country.title, short_country_path( brand.country ) %>
+    <%= link_to_country( brand.country, flag: true ) %>
    </td>
 </tr>
 

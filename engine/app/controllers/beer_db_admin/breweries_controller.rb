@@ -25,6 +25,12 @@ class BreweriesController < BeerDbAdminController
     @brewery = Brewery.find( params[:id] )
   end
 
+  # GET /by/:key  e.g  /by/guiness /by/ottakringer
+  def shortcut
+    @brewery = Brewery.find_by_key!( params[:key] )
+    render :show
+  end
+
 
 end # class BreweriesController
 

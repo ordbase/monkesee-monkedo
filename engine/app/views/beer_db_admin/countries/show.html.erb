@@ -1,14 +1,28 @@
+<% country = @country
+ %>
 
 <h3>
 <%= image_tag_for_country( @country, size: '64x64' ) %>
 
 <!-- fix: use full_title e.g. is title (code) -->
 <%= @country.title %> 
-(<%= @country.code %>), 
-
+(<%= @country.code %>)
+  - 
  <%= @country.beers.count %> Beers,
  <%= @country.breweries.count %> Breweries
 </h3>
+
+
+<!-- add intra-page links here -->
+<p>
+  <% country.regions.each_with_index do |region,i| %>
+    <% if i > 0 %>
+      &bull; 
+    <% end %>
+    <%= link_to region.title, "##{region.key}" %>
+  <% end %>
+</p>
+
 
 
 <p>
@@ -63,7 +77,7 @@
    <% breweries_missing_regions.each do |brewery| %>
     <tr>
       <td style='vertical-align: baseline;'>
-        <%= link_to brewery.title, brewery_path( brewery.id ) %>
+        <%= link_to brewery.title, short_brewery_path( brewery ) %>
           
           | <%= brewery.founded %>
           <%= render_brewery_tags( brewery ) %>
@@ -97,16 +111,25 @@
         </span>
         
         <%= region.title_w_synonyms %>
+        
+        <% if region.abbr.present? %>
+           <!-- fix: check if abbr is same as title
+                 or lowercase is same as key  e.g. NY == ny or similar ??
+                - if yes, do NOT print -->
+           , <%= region.abbr %>
+        <% end %>
+
         <span class='city-count'>
           (<%= region.breweries.count %>)
         </span>
+
       </td>
      </tr>
 
    <% region.breweries.order( @order_clause ).each do |brewery| %>
     <tr>
       <td style='vertical-align: baseline;'>
-        <%= link_to brewery.title, brewery_path( brewery.id ) %>
+        <%= link_to brewery.title, short_brewery_path( brewery ) %>
    
           | <%= brewery.founded %>
           <%= render_brewery_tags( brewery ) %>

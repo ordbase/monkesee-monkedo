@@ -14,6 +14,12 @@ class BeersController < BeerDbAdminController
     @beer = Beer.find( params[:id] )
   end
 
+  # GET /beer/:key  e.g  /beer/guiness /beer/ottakringerhelles
+  def shortcut
+    @beer = Beer.find_by_key!( params[:key] )
+    render :show
+  end
+
 end # class BeersController
 
 end # module BeerDbAdmin

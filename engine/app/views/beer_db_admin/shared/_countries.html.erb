@@ -6,9 +6,8 @@
 
 <% if beers_count > 0 || breweries_count > 0 %>
 <div>
-  <span class='country-key'><%= country.key %></span>
-    <%= image_tag_for_country( country ) %>
-    <%= link_to country.title, short_country_path( country ) %>
+    <span class='country-key'><%= country.key %></span>
+    <%= link_to_country( country, flag: true ) %>
     (<%= country.code %>)
 
     <span class='country-key'>
@@ -28,7 +27,7 @@
        <% if i > 0 %>
          &bull; 
        <% end %>
-       <%= link_to beer.title, beer_path( beer.id ) %>
+       <%= link_to_beer( beer ) %>
     <% end %>
     <span class="beer-count">(<%= beers_count %>)</span>
 </div>

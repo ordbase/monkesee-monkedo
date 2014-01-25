@@ -15,8 +15,9 @@
        <% if i > 0 %>
          &bull;
        <% end %>
-       <%= link_to brewery.title, brewery_path( brewery.id ) %>
+       <%= link_to brewery.title, short_brewery_path( brewery ) %>
     <% end %>
   </td>
 </tr>
 <% end %><!-- if breweries_count > 0 -->
+

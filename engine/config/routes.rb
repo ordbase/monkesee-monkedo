@@ -13,8 +13,15 @@ BeerDbAdmin::Engine.routes.draw do
   ###############################
   # routes for shortcuts (friendly urls)
   
-  ## 2 lower case letters - assume shortcut for country
-  match '/:key', :to => 'countries#shortcut', :as => :short_country_worker, :key => /[a-z]{2}/
+
+  match '/beer/:key', :to => 'beers#shortcut', :as => :short_beer_worker
+  # todo/check: use brewery instead of by shortcut ??
+  match '/by/:key',   :to => 'breweries#shortcut', :as => :short_brewery_worker
+
+  # note: 2-3 lower case letters - assume shortcut for country  e.g. /at or /mx or /nir or /sco
+  
+  match '/:key', :to => 'regions#shortcut',   :as => :short_region_worker,  :key => /[a-z]{2,3}[\-+.][a-z]{1,3}/
+  match '/:key', :to => 'countries#shortcut', :as => :short_country_worker, :key => /[a-z]{2,3}/
 
 
   # current user's start page/front page

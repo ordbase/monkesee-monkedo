@@ -17,9 +17,8 @@
   <% end %>
   
   ||
-  <%= image_tag_for_country( brewery.country ) %>
-  <%= link_to brewery.country.title, short_country_path( brewery.country ) %>
-  
+  <%= link_to_country( brewery.country, flag: true ) %>
+
 
 <% if brewery.tags.count > 0 %>
   <span class='tags tag-list'>
@@ -46,7 +45,7 @@
 <ul>
   <% brewery.beers.each do |beer| %>
     <li>
-       <%= link_to beer.title, beer_path( beer.id ) %>
+       <%= link_to_beer( beer ) %>
 
      <% if beer.synonyms.present? %>
        &bull; <%= beer.synonyms %>
@@ -99,13 +98,12 @@
   <% else %>
       -
   <% end %>
-    /
+    ›
     <% if brewery.region.present? %>
-      <%= brewery.region.title %>
+      <%= link_to_region( brewery.region ) %>
     <% else %>
       -
     <% end %>
-    /
-  <%= image_tag_for_country( brewery.country ) %>
-  <%= link_to brewery.country.title, short_country_path( brewery.country ) %>
+    ›
+    <%= link_to_country( brewery.country ) %>
 </p>

@@ -12,8 +12,8 @@
   <%= beer.bookmarks.where(yes:true).count %>  +1s,
   <%= beer.drinks.count %> Ratings
 
-  || <%= image_tag_for_country( beer.country ) %>
-     <%= link_to beer.country.title, short_country_path( beer.country ) %>
+  ||
+  <%= link_to_country( beer.country, flag: true ) %>
 </h3>
 
 
@@ -55,7 +55,7 @@
 
 <% if beer.brewery.present? %>
 <p>
- By  <%= link_to beer.brewery.title, brewery_path( beer.brewery.id ) %> |
+ By  <%= link_to_brewery( beer.brewery ) %> |
      <%= beer.brewery.founded %> ||
      <%= beer.brewery.address %>
 </p>
@@ -100,14 +100,15 @@
 
 
 
+
 <hr>
 <% if beer.brewery.present? %>
 <p>
-  <% beer.brewery.beers.order(:title).each_with_index do |beer,i| %>
+  <% beer.brewery.beers.order(:key).each_with_index do |beer,i| %>
        <% if i > 0 %>
          &bull;
        <% end %>
-       <%= link_to beer.title, beer_path( beer.id ) %>
+       <%= link_to_beer( beer ) %>
   <% end %>
 </p>
 <% end %>
@@ -122,11 +123,10 @@
     <% end %>
     /
     <% if beer.region.present? %>
-      <%= beer.region.title %>
+      <%= link_to_region( beer.region ) %>
     <% else %>
       -
     <% end %>
     /
-     <%= image_tag_for_country( beer.country ) %>
-     <%= link_to beer.country.title, short_country_path( beer.country ) %>
+     <%= link_to_country( beer.country, flag: true ) %>
 </p>
