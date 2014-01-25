@@ -5,8 +5,9 @@ module BeerDbAdmin
 class CountriesController < BeerDbAdminController
   
   def index
-    @countries = Country.all
+    # list by continent
   end
+
 
   # GET /:key  e.g  /at or /us etc.
   def shortcut

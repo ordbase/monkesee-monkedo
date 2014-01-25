@@ -14,7 +14,18 @@
   <tr>
     <!-- left -->
     <td>
-      <span class='logo'><%= link_to '[Logo]', beers_path() %></span> &nbsp;&nbsp;&nbsp;
+      <span class='logo'>
+      
+       <%#= link_to '[Logo]', beers_path() %>
+       open public domain data | beer.db -
+         <%= Beer.count %> beers,
+         <%= Brand.count %> brands,
+         <%= Brewery.count %> breweries
+         in
+         65 countries
+
+      </span> &nbsp;&nbsp;&nbsp;
+      
       <% if content_for? :breadcrumb %>
         <span class='breadcrumb-inline'>
           <%= yield :breadcrumb %>
@@ -46,17 +57,24 @@
   <% end %>
 
   <%= link_to 'Countries', countries_path() %>  &bull;
-  <%= link_to 'Regions', regions_path() %>  &bull;
+ <!--
+ <%= link_to 'Regions', regions_path() %>  &bull;
+   -->
   <%= link_to 'Beers', beers_path() %>  &bull;
   <%= link_to 'Brands', brands_path() %>  &bull;
   <%= link_to 'Breweries', breweries_path() %>  &bull;
   <%= link_to 'Tags', tags_path() %>    &bull;
-  <%= link_to 'Timeline', time_path() %>
-
+  <%= link_to 'Timeline', time_path() %>    &bull;
+  <%= link_to 'About', about_path() %>
 .::.
 
   <!-- fix: use named url_helper for /api -->
-  <%= link_to "Web Service Demo & Docu / HTTP JSON API", '/api' %>
+  <%= link_to "Web Service / HTTP JSON API", '/api' %>
+
+.::.
+
+   <%= link_to 'Update Data (Edit Me!)', 'https://github.com/openbeer/world' %>
+
 </p>
 
 <% end %>

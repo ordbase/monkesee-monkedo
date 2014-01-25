@@ -13,9 +13,14 @@ Open beer web admin addon / rails engine
 Try the `beer.db` web admin demo running
 on Heroku [`prost.herokuapp.com`](http://prost.herokuapp.com).
 
+
 ## Usage
 
-TBD
+### Rails
+
+In your routes (`config/routes.rb`) mount the beer.db.admin app; add the line:
+
+    mount BeerDbAdmin::Server, :at => '/db'
 
 
 ## License
@@ -27,3 +32,4 @@ Use it as you please with no restrictions whatsoever.
 
 Send them along to the [Open Beer Database & Friends Forum/Mailing List](http://groups.google.com/group/beerdb).
 Thanks!
+

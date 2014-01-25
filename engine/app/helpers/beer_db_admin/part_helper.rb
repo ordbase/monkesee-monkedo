@@ -3,6 +3,11 @@
 module BeerDbAdmin
 module PartHelper
 
+  def render_countries( countries, opts={} )
+    render partial: 'beer_db_admin/shared/countries',
+           locals: { countries: countries }
+  end
+
   def render_bookmarks( bookmarks, opts={} )
 
     render partial: 'beer_db_admin/shared/bookmarks',

@@ -42,5 +42,5 @@ BeerDbAdmin::Engine.routes.draw do
   resources :regions
   resources :tags
 
-  root :to => 'beers#index'
+  root :to => 'countries#index'
 end

@@ -4,6 +4,10 @@ README.md
 Rakefile
 app/assets/javascripts/beer_db_admin/application.js
 app/assets/stylesheets/beer_db_admin/application.css.scss
+app/assets/stylesheets/beer_db_admin/button.css.scss
+app/assets/stylesheets/beer_db_admin/flash.css.scss
+app/assets/stylesheets/beer_db_admin/navbar.css.scss
+app/assets/stylesheets/beer_db_admin/settings.css.scss
 app/controllers/beer_db_admin/beer_db_admin_controller.rb
 app/controllers/beer_db_admin/beers_controller.rb
 app/controllers/beer_db_admin/bookmarks_controller.rb
@@ -41,6 +45,7 @@ app/views/beer_db_admin/shared/_bookmarks.html.erb
 app/views/beer_db_admin/shared/_breweries_for_country.html.erb
 app/views/beer_db_admin/shared/_breweries_for_region.html.erb
 app/views/beer_db_admin/shared/_brewery_tags.html.erb
+app/views/beer_db_admin/shared/_countries.html.erb
 app/views/beer_db_admin/shared/_tags.html.erb
 app/views/beer_db_admin/tags/index.html.erb
 app/views/beer_db_admin/time/index.html.erb
