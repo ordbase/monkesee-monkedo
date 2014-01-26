@@ -20,7 +20,23 @@
       &bull; 
     <% end %>
     <%= link_to region.title, "##{region.key}" %>
+    <span class='city-count'>
+      (<%= region.breweries.count %>)
+    </span>
+
   <% end %>
+  
+  <!-- check for uncategorized breweries (no region) -->
+  <% uncategorized_breweries_count = country.breweries.where( 'region_id is null').count %>
+  <% if uncategorized_breweries_count > 0 %>
+    &bull;
+    <b> Uncategorized
+    <span class='city-count'>
+      (<%= uncategorized_breweries_count %>)
+    </span>
+    </b>
+  <% end %>
+
 </p>
 
 
@@ -110,7 +126,8 @@
           <%= region.key %>
         </span>
         
-        <%= region.title_w_synonyms %>
+        <a name='<%= region.key %>'></a>
+        <%= link_to region.title_w_synonyms, short_region_path(region) %>
         
         <% if region.abbr.present? %>
            <!-- fix: check if abbr is same as title

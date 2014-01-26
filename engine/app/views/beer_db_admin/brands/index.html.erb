@@ -23,19 +23,10 @@
 
   </td>
   <td>
-    <% if brand.city.present? %>
-      <%= brand.city.title %>
-    <% else %>
-      -
-    <% end %>
-    /
-    <% if brand.region.present? %>
-      <%= link_to_region( brand.region ) %>
-    <% else %>
-      -
-    <% end %>
-    /
-    <%= link_to_country( brand.country, flag: true ) %>
+    
+    <!-- fix: add option flag: true -->
+    <%= render_world_tree( brand, flag: true ) %>
+
    </td>
 </tr>
 

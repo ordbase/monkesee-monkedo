@@ -46,19 +46,10 @@
 
   </td>
   <td>
-    <% if beer.city.present? %>
-      <%= beer.city.title %>
-    <% else %>
-      -
-    <% end %>
-    /
-    <% if beer.region.present? %>
-      <%= beer.region.title %>
-    <% else %>
-      -
-    <% end %>
-    /
-     <%= link_to_country( beer.country, flag: true ) %>
+    
+    <!-- fix: add option flag: true -->
+    <%= render_world_tree( beer, flag: true ) %>
+    
    </td>
 </tr>
 

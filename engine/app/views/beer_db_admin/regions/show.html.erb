@@ -24,17 +24,15 @@
 </h3>
 
 
+
 <!-- note: add cities w/ breweries only -->
 <p>
 <% cities_count = 0
    region.cities.order(:title).each do |city|
+     city_breweries_count = city.breweries.count
  %>
-
-   <% city_breweries_count = city.breweries.count %>
    
-   <% if city_breweries_count > 0
-         cities_count +=1
-   %>
+   <% if city_breweries_count > 0 %>
        <% if cities_count > 0 %>
          &bull;
        <% end %>
@@ -45,9 +43,21 @@
            (<%= city_breweries_count %>)
          </span>
        <% end %>
-   <% end %>
-
+   <% cities_count +=1
+      end %>
 <% end %>
+
+  <!-- check for uncategorized breweries (no region) -->
+  <% uncategorized_breweries_count = region.breweries.where( 'city_id is null').count %>
+  <% if uncategorized_breweries_count > 0 %>
+    &bull;
+    <b> Uncategorized
+    <span class='city-count'>
+      (<%= uncategorized_breweries_count %>)
+    </span>
+    </b>
+  <% end %>
+
 </p>
 
 

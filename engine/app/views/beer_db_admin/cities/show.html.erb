@@ -8,9 +8,6 @@
 
 <!-- fix: use full_title e.g. is title (code) -->
 
-<span class='region-key'>
- <%= city.key %>
-</span> 
 <%= city.title %>
 
   ›
@@ -63,13 +60,28 @@
 <hr>
 
 
-<% region.cities.order(:title).each_with_index do |city,i| %>
-  <% if i > 0 %>
-    &nbsp;
-  <% end %>
-   <%= link_to_city( city ) %>
-  <span class='region-key'>
-  (<%= city.breweries.count %>)
-  </span>
+<!-- note: add cities w/ breweries only -->
+<p>
+<% cities_count = 0
+   region.cities.order(:title).each do |city|
+      city_breweries_count = city.breweries.count
+ %>
+ 
+   <% if city_breweries_count > 0 %>
+
+       <% if cities_count > 0 %>
+         &bull;
+       <% end %>
+ 
+       <%= link_to_city( city ) %>
+       <% if city_breweries_count > 1 %>
+         <span class='region-key'>
+           (<%= city_breweries_count %>)
+         </span>
+       <% end %>
+   <% cities_count +=1
+      end %>
+
 <% end %>
+</p>
 

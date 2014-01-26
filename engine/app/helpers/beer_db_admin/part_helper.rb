@@ -3,9 +3,12 @@
 module BeerDbAdmin
 module PartHelper
 
-  def render_world_tree( obj, opts={} )
+  def render_world_tree( o, opts={} )
     render partial: 'beer_db_admin/shared/world_tree',
-           locals: { obj: obj }
+           locals: { country: o.country,
+                     region:  o.region,
+                     city:    o.city,
+                     show_flag: (opts[:flag].present? ? true : false) }
   end
 
   def render_countries( countries, opts={} )
