@@ -25,40 +25,12 @@
 
 
 <table>
-
- <!-- fix: use partial ???  -->
-
-   <% city.breweries.order( :key ).each do |brewery| %>
-    <tr>
-      <td style='vertical-align: baseline;'>
-        <%= link_to brewery.title, short_brewery_path( brewery ) %>
-   
-          | <%= brewery.founded %>
-          <%= render_brewery_tags( brewery ) %>
-          <br>
-          <span class='city-count'>
-          <%= brewery.address %>
-          </span>
-      </td>
-      <td style='vertical-align: baseline;'>
-        <span class='city-count'>
-          <% if brewery.web.present? %>
-            <%= link_to brewery.web, "http://#{brewery.web}" %>
-          <% end %>
-        </span>
-      </td>
-      <td style='vertical-align: baseline;'>
-        <%= render_beers( brewery.beers ) %>
-      </td>
-    </tr>
-   <% end %><!-- each brewery -->
-
-
+   <%= render_breweries_table_rows( city.breweries ) %>
 </table>
+
 
 <!-- add links to all cities here -->
 <hr>
-
 
 <!-- note: add cities w/ breweries only -->
 <p>

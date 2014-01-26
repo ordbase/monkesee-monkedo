@@ -37,7 +37,7 @@
          &bull;
        <% end %>
  
-       <%= city.title %>
+       <%= link_to city.title, "##{city.key}" %>
        <% if city_breweries_count > 1 %>
          <span class='region-key'>
            (<%= city_breweries_count %>)
@@ -63,33 +63,50 @@
 
 <table>
 
- <!-- fix: use partial ???  -->
+ <!-- fix: use partials ???  -->
 
-   <% region.breweries.order( @order_clause ).each do |brewery| %>
-    <tr>
-      <td style='vertical-align: baseline;'>
-        <%= link_to brewery.title, short_brewery_path( brewery ) %>
-   
-          | <%= brewery.founded %>
-          <%= render_brewery_tags( brewery ) %>
-          <br>
-          <span class='city-count'>
-          <%= brewery.address %>
-          </span>
-      </td>
-      <td style='vertical-align: baseline;'>
+ 
+<!-- for now add section for uncategorized breweries (e.g. w/o city; city missing)
+  -->
+
+   <% breweries_missing_cities = region.breweries.where( 'city_id is null')
+      breweries_missing_cities_count = breweries_missing_cities.count
+      
+      if  breweries_missing_cities_count > 0
+    %>
+
+     <tr>
+      <td colspan='3' style='background-color: silver;'>
+          <b>Uncategorized</b>
         <span class='city-count'>
-          <% if brewery.web.present? %>
-            <%= link_to brewery.web, "http://#{brewery.web}" %>
-          <% end %>
+          (<%= breweries_missing_cities_count %>)
         </span>
       </td>
-      <td style='vertical-align: baseline;'>
-        <%= render_beers( brewery.beers ) %>
-      </td>
-    </tr>
-   <% end %><!-- each brewery -->
+     </tr>
+     
+     <%= render_breweries_table_rows( breweries_missing_cities ) %>
+   <% end %><!-- if breweries_missing_cities_count > 0 -->
 
+ 
+   <% region.cities.order(:title).each do |city| %>
+     <% city_breweries_count = city.breweries.count %>
+     <% if city_breweries_count > 0 %>
+      <tr>
+      <td colspan='3' style='background-color: silver;'>
+          <a name='<%= city.key %>'></a>
+          <%= link_to_city( city ) %>
+          <% if city_breweries_count > 1 %>
+            <span class='city-count'>
+              (<%= city_breweries_count %>)
+             </span>
+          <% end %>
+      </td>
+     </tr>
+ 
+     <%= render_breweries_table_rows( city.breweries ) %>
+ 
+     <% end %>
+   <% end %>
 
 </table>
 

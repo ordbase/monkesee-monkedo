@@ -41,6 +41,12 @@ module PartHelper
   end
 
 
+  def render_breweries_table_rows( breweries )
+    render partial: 'beer_db_admin/shared/breweries_table_rows',
+      locals: { breweries: breweries }
+  end
+
+
   def render_breweries_for_city( city )
     render partial: 'beer_db_admin/shared/breweries_for_city', locals: { city: city }
   end

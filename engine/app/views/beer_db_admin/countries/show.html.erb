@@ -90,30 +90,7 @@
       </td>
      </tr>
      
-   <% breweries_missing_regions.each do |brewery| %>
-    <tr>
-      <td style='vertical-align: baseline;'>
-        <%= link_to brewery.title, short_brewery_path( brewery ) %>
-          
-          | <%= brewery.founded %>
-          <%= render_brewery_tags( brewery ) %>
-          <br>
-          <span class='city-count'>
-          <%= brewery.address %>
-          </span>
-      </td>
-      <td style='vertical-align: baseline;'>
-        <span class='city-count'>
-          <% if brewery.web.present? %>
-            <%= link_to brewery.web, "http://#{brewery.web}" %>
-          <% end %>
-        </span>
-      </td>
-      <td style='vertical-align: baseline;'>
-        <%= render_beers( brewery.beers ) %>
-      </td>
-    </tr>
-   <% end %><!-- each brewery -->
+     <%= render_breweries_table_rows( breweries_missing_regions ) %>
    <% end %><!-- if breweries_missing_regions_count > 0 -->
 
 
@@ -143,30 +120,7 @@
       </td>
      </tr>
 
-   <% region.breweries.order( @order_clause ).each do |brewery| %>
-    <tr>
-      <td style='vertical-align: baseline;'>
-        <%= link_to brewery.title, short_brewery_path( brewery ) %>
-   
-          | <%= brewery.founded %>
-          <%= render_brewery_tags( brewery ) %>
-          <br>
-          <span class='city-count'>
-          <%= brewery.address %>
-          </span>
-      </td>
-      <td style='vertical-align: baseline;'>
-        <span class='city-count'>
-          <% if brewery.web.present? %>
-            <%= link_to brewery.web, "http://#{brewery.web}" %>
-          <% end %>
-        </span>
-      </td>
-      <td style='vertical-align: baseline;'>
-        <%= render_beers( brewery.beers ) %>
-      </td>
-    </tr>
-   <% end %><!-- each brewery -->
+   <%= render_breweries_table_rows( region.breweries ) %>
   <% end %> <!-- each region -->
 
 
