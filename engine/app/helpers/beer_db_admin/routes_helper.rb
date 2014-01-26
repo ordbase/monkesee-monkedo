@@ -14,6 +14,11 @@ module RoutesHelper
     short_region_worker_path( "#{region.country.key}-#{region.key}", opts )
   end
 
+  def short_city_path( city, opts={} )
+    short_city_worker_path( city.key, opts )
+  end
+
+
   def short_brewery_path( brewery, opts={} )
     short_brewery_worker_path( brewery.key, opts )
   end

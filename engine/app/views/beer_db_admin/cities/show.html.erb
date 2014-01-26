@@ -1,0 +1,75 @@
+<% city    = @city
+   region  = @city.region
+   country = @city.country
+ %>
+
+<h3>
+<%= image_tag_for_country( country, size: '64x64' ) %>
+
+<!-- fix: use full_title e.g. is title (code) -->
+
+<span class='region-key'>
+ <%= city.key %>
+</span> 
+<%= city.title %>
+
+  ›
+
+  <%= link_to_region(region) %>
+
+  ›
+  
+  <%= link_to_country(country) %>
+  (<%= country.code %>)
+  -
+ <%= city.beers.count %> Beers,
+ <%= city.breweries.count %> Breweries
+</h3>
+
+
+<table>
+
+ <!-- fix: use partial ???  -->
+
+   <% city.breweries.order( :key ).each do |brewery| %>
+    <tr>
+      <td style='vertical-align: baseline;'>
+        <%= link_to brewery.title, short_brewery_path( brewery ) %>
+   
+          | <%= brewery.founded %>
+          <%= render_brewery_tags( brewery ) %>
+          <br>
+          <span class='city-count'>
+          <%= brewery.address %>
+          </span>
+      </td>
+      <td style='vertical-align: baseline;'>
+        <span class='city-count'>
+          <% if brewery.web.present? %>
+            <%= link_to brewery.web, "http://#{brewery.web}" %>
+          <% end %>
+        </span>
+      </td>
+      <td style='vertical-align: baseline;'>
+        <%= render_beers( brewery.beers ) %>
+      </td>
+    </tr>
+   <% end %><!-- each brewery -->
+
+
+</table>
+
+<!-- add links to all cities here -->
+<hr>
+
+
+<% region.cities.order(:title).each_with_index do |city,i| %>
+  <% if i > 0 %>
+    &nbsp;
+  <% end %>
+   <%= link_to_city( city ) %>
+  <span class='region-key'>
+  (<%= city.breweries.count %>)
+  </span>
+<% end %>
+

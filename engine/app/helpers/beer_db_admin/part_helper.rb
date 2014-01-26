@@ -3,6 +3,11 @@
 module BeerDbAdmin
 module PartHelper
 
+  def render_world_tree( obj, opts={} )
+    render partial: 'beer_db_admin/shared/world_tree',
+           locals: { obj: obj }
+  end
+
   def render_countries( countries, opts={} )
     render partial: 'beer_db_admin/shared/countries',
            locals: { countries: countries }
@@ -32,6 +37,10 @@ module PartHelper
     render partial: 'beer_db_admin/shared/beers', locals: { beers: beers }
   end
 
+
+  def render_breweries_for_city( city )
+    render partial: 'beer_db_admin/shared/breweries_for_city', locals: { city: city }
+  end
 
   def render_breweries_for_region( region )
     render partial: 'beer_db_admin/shared/breweries_for_region', locals: { region: region }

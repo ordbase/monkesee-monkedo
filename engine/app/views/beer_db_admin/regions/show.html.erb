@@ -24,13 +24,29 @@
 </h3>
 
 
-<!-- add cities w/ breweries only ?? -->
+<!-- note: add cities w/ breweries only -->
 <p>
-<% region.cities.each_with_index do |city,i| %>
-   <% if i > 0 %>
-     &bull;
+<% cities_count = 0
+   region.cities.order(:title).each do |city|
+ %>
+
+   <% city_breweries_count = city.breweries.count %>
+   
+   <% if city_breweries_count > 0
+         cities_count +=1
+   %>
+       <% if cities_count > 0 %>
+         &bull;
+       <% end %>
+ 
+       <%= city.title %>
+       <% if city_breweries_count > 1 %>
+         <span class='region-key'>
+           (<%= city_breweries_count %>)
+         </span>
+       <% end %>
    <% end %>
-   <%= city.title %>
+
 <% end %>
 </p>
 

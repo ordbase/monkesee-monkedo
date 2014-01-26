@@ -57,6 +57,12 @@
 </ul>
 
 
+<hr>
+<% if brewery.city.present? %>
+  <!-- check number of breweries !!! only if more than one!!! -->
+  <%= render_breweries_for_city( brewery.city ) %>
+<% end %>
+
 
 <hr>
 
@@ -67,21 +73,7 @@
 <% end %><!-- if brewery.region.present? -->
 
 
-
 <hr>
 
-<p>
-  <% if brewery.city.present? %>
-      <%= brewery.city.title %>
-  <% else %>
-      -
-  <% end %>
-    ›
-    <% if brewery.region.present? %>
-      <%= link_to_region( brewery.region ) %>
-    <% else %>
-      -
-    <% end %>
-    ›
-    <%= link_to_country( brewery.country ) %>
-</p>
+<%= render_world_tree( brewery ) %>
+

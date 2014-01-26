@@ -12,11 +12,13 @@ module LinkHelper
     link_to beer.title, short_beer_path( beer )
   end
 
+  def link_to_city( city, opts={} )
+    link_to city.title, short_city_path( city )
+  end
 
   def link_to_region( region, opts={} )
     link_to region.title, short_region_path( region )
   end
-
 
   def link_to_country( country, opts={} )
 

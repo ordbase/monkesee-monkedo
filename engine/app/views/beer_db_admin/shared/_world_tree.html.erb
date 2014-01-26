@@ -1,0 +1,19 @@
+
+<!-- use/find a better name than obj e.g. location?, placeable? ???
+  -->
+
+<p>
+  <% if obj.city.present? %>
+    <%= link_to_city( obj.city ) %>
+  <% else %>
+    -
+  <% end %>
+    ›
+  <% if obj.region.present? %>
+    <%= link_to_region( obj.region ) %>
+  <% else %>
+    -
+  <% end %>
+    ›
+  <%= link_to_country( obj.country ) %>
+</p>
