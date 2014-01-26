@@ -19,6 +19,7 @@
   ||
   <%= link_to_country( brewery.country, flag: true ) %>
 
+  - <%= brewery.beers.count %> Beers
 
 <% if brewery.tags.count > 0 %>
   <span class='tags tag-list'>
@@ -27,6 +28,12 @@
 <% end %>
 
 </h3>
+
+<!-- add some quick search services for convenience
+   fix: move to shared ?? use render_brewery_actions() ???
+-->
+<%= render partial: 'actions', locals: { brewery: brewery } %>
+
 
 <p>
   <%= brewery.address %>
@@ -40,44 +47,15 @@
 
 
 <!-- add all beers -->
-
 <hr>
 <ul>
   <% brewery.beers.each do |beer| %>
     <li>
-       <%= link_to_beer( beer ) %>
-
-     <% if beer.synonyms.present? %>
-       &bull; <%= beer.synonyms %>
-     <% end %>
-     /
-     <% if beer.abv.present? %>
-       <%= beer.abv %>
-     <% else %>
-       -
-     <% end %>
-      %
-     <% if beer.plato.present? %>
-      / <%= beer.plato %>°
-     <% end %>
-
-<% if beer.tags.count > 0 %>
-     /
-    <span class='tags'>
-    <% beer.tags.each_with_index do |tag,i| %>
-      <% if i > 0 %>
-         &bull; 
-      <% end %>
-      <%= tag.key %>
-    <% end %>
-    </span>
-<% end %>
-
-
-       
+      <%= render_beer( beer ) %>
     </li>
   <% end %>
 </ul>
+
 
 
 <hr>

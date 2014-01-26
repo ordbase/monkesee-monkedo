@@ -24,6 +24,10 @@ module PartHelper
     render partial: 'beer_db_admin/shared/brewery_tags', locals: { brewery: brewery }
   end
 
+  def render_beer( beer )
+    render partial: 'beer_db_admin/shared/beer', locals: { beer: beer }
+  end
+
   def render_beers( beers )
     render partial: 'beer_db_admin/shared/beers', locals: { beers: beers }
   end

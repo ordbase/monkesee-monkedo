@@ -36,5 +36,5 @@ module LinkHelper
   end
 
 
-end # module RoutesHelper
+end # module LinkHelper
 end # moudle BeerDbAdmin
