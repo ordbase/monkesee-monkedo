@@ -66,13 +66,13 @@ GIT
 
 GIT
   remote: https://github.com/openbeer/world.git
-  revision: 1b67f96026f1ccb325a7ea283a71000eb656ccd2
+  revision: 83044f2ba47a0d6dd80105f20e11df77ba581ccd
   specs:
     beerdb-data-world (99)
 
 GIT
   remote: https://github.com/openmundi/world.db.git
-  revision: cfc7d7f63dafb84ee2a82642b33c46430e721a9b
+  revision: 64d8d587a2e279fb08b6528e98a0f10db30dc6ce
   specs:
     worlddb-data (99)
 
@@ -185,7 +185,7 @@ GEM
     rake (10.1.1)
     rdoc (3.12.2)
       json (~> 1.4)
-    sass (3.2.13)
+    sass (3.2.14)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
