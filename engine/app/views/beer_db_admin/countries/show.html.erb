@@ -97,7 +97,8 @@
 
   <% @country.regions.each do |region| %>
      <tr>
-      <td colspan='3' style='background-color: silver;'>
+      <td style='background-color: silver;'></td>
+      <td colspan='2' style='background-color: silver; font-size: 130%;'>
         <!-- use class region-key -->
         <span class='city-count'>
           <%= region.key %>
@@ -120,7 +121,7 @@
       </td>
      </tr>
 
-   <%= render_breweries_table_rows( region.breweries ) %>
+   <%= render_breweries_table_rows_for_region( region ) %>
   <% end %> <!-- each region -->
 
 

@@ -6,7 +6,7 @@ class BeersController < BeerDbAdminController
   
   def index
     # note: show 25 per page for now
-    @beers = Beer.limit( 25 )
+    @beers = Beer.limit( 25 ).where( 'brewery_id is not null' )
   end
   
   # GET /beers/:id e.g. /beers/1
