@@ -22,12 +22,7 @@ navy);
        text-decoration: underline;
        color: $navbar-text;
      }
-     
-     .signin, .signin *,
-     .signout, .signout * {
-       font-size: $base-font-size*0.80;
-     }
-     
+
      .logo {
         a,a:visited,a:hover {
            text-decoration: none;
@@ -63,12 +58,7 @@ navy);
        text-decoration: underline;
        color: $admin-navbar-text;
      }
-     
-     .signin, .signin *,
-     .signout, .signout * {
-       font-size: $base-font-size*0.80;
-     }
-     
+
      .logo {
         a,a:visited,a:hover {
            text-decoration: none;
@@ -104,12 +94,7 @@ navy);
        text-decoration: underline;
        color: $db-navbar-text;
      }
-     
-     .signin, .signin *,
-     .signout, .signout * {
-       font-size: $base-font-size*0.80;
-     }
-     
+
      .logo {
         a,a:visited,a:hover {
            text-decoration: none;

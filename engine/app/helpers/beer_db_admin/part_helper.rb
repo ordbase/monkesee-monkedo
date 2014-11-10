@@ -16,13 +16,6 @@ module PartHelper
            locals: { countries: countries }
   end
 
-  def render_bookmarks( bookmarks, opts={} )
-
-    render partial: 'beer_db_admin/shared/bookmarks',
-           locals: { bookmarks: bookmarks,
-                     allow_edits: (opts[:edit].present? ? true : false) }
-  end
-
   def render_tags( tags )
     render partial: 'beer_db_admin/shared/tags', locals: { tags: tags }
   end
