@@ -28,10 +28,10 @@
 <!-- note: add cities w/ breweries only -->
 <p>
 <% cities_count = 0
-   region.cities.order(:title).each do |city|
+   region.cities.order(:name).each do |city|
      city_breweries_count = city.breweries.count
  %>
-   
+
    <% if city_breweries_count > 0 %>
        <% if cities_count > 0 %>
          &bull;

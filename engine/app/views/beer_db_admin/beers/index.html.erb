@@ -9,13 +9,7 @@
 <% beers.each do |beer| %>
 <tr>
   <td class='beer-key'><%= beer.key %></td>
-  
-<% if signed_in? %>
-  <td>
-     <%= link_to 'Add', add_beer_to_user_path( beer.id, current_user_id ), class: 'btn' %>
-  </td>
-<% end %>
-  
+
   <td>
      <%= link_to_beer( beer ) %>
      <% if beer.synonyms.present? %>
