@@ -2,11 +2,12 @@
 
 Open beer web admin addon / rails engine
 
-* home  :: [github.com/geraldb/beer.db.admin](https://github.com/geraldb/beer.db.admin)
-* bugs  :: [github.com/geraldb/beer.db.admin/issues](https://github.com/geraldb/beer.db.admin/issues)
+* home  :: [github.com/beerkit/beer.db.admin](https://github.com/beerkit/beer.db.admin)
+* bugs  :: [github.com/beerkit/beer.db.admin/issues](https://github.com/beerkit/beer.db.admin/issues)
 * gem   :: [rubygems.org/gems/beerdb-admin](https://rubygems.org/gems/beerdb-admin)
 * rdoc  :: [rubydoc.info/gems/beerdb-admin](http://rubydoc.info/gems/beerdb-admin)
 * forum :: [groups.google.com/group/beerdb](https://groups.google.com/group/beerdb)
+
 
 ## Demo
 

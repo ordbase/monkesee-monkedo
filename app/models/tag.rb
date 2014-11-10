@@ -1,2 +1,2 @@
 
-Tag = WorldDb::Model::Tag
+Tag = TagDb::Model::Tag

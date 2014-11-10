@@ -38,17 +38,6 @@ ActiveRecord::Schema.define(:version => 1) do
     t.datetime "updated_at",                    :null => false
   end
 
-  create_table "bookmarks", :force => true do |t|
-    t.integer  "bookmarkable_id"
-    t.string   "bookmarkable_type"
-    t.integer  "user_id",                              :null => false
-    t.boolean  "yes",               :default => false, :null => false
-    t.boolean  "no",                :default => false, :null => false
-    t.boolean  "wish",              :default => false, :null => false
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
-  end
-
   create_table "brands", :force => true do |t|
     t.string   "key",                           :null => false
     t.string   "title",                         :null => false
@@ -79,6 +68,9 @@ ActiveRecord::Schema.define(:version => 1) do
     t.string   "address"
     t.integer  "since"
     t.integer  "closed"
+    t.boolean  "brewpub",     :default => false, :null => false
+    t.boolean  "prod_m",      :default => false, :null => false
+    t.boolean  "prod_l",      :default => false, :null => false
     t.integer  "prod"
     t.integer  "prod_grade"
     t.integer  "grade",       :default => 4,     :null => false
@@ -101,18 +93,17 @@ ActiveRecord::Schema.define(:version => 1) do
   end
 
   create_table "cities", :force => true do |t|
-    t.string   "title",                         :null => false
+    t.string   "name",                          :null => false
     t.string   "key",                           :null => false
+    t.integer  "place_id",                      :null => false
     t.string   "code"
-    t.string   "synonyms"
+    t.string   "alt_names"
     t.integer  "country_id",                    :null => false
     t.integer  "region_id"
     t.integer  "city_id"
     t.integer  "pop"
     t.integer  "popm"
     t.integer  "area"
-    t.float    "lat"
-    t.float    "lng"
     t.boolean  "m",          :default => false, :null => false
     t.boolean  "c",          :default => false, :null => false
     t.boolean  "d",          :default => false, :null => false
@@ -121,9 +112,11 @@ ActiveRecord::Schema.define(:version => 1) do
   end
 
   create_table "continents", :force => true do |t|
-    t.string   "title",      :null => false
+    t.string   "name",       :null => false
+    t.string   "slug",       :null => false
     t.string   "key",        :null => false
-    t.string   "synonyms"
+    t.integer  "place_id",   :null => false
+    t.string   "alt_names"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -131,10 +124,12 @@ ActiveRecord::Schema.define(:version => 1) do
   add_index "continents", ["key"], :name => "index_continents_on_key", :unique => true
 
   create_table "countries", :force => true do |t|
-    t.string   "title",                           :null => false
+    t.string   "name",                            :null => false
+    t.string   "slug",                            :null => false
     t.string   "key",                             :null => false
+    t.integer  "place_id",                        :null => false
     t.string   "code",                            :null => false
-    t.string   "synonyms"
+    t.string   "alt_names"
     t.integer  "pop",                             :null => false
     t.integer  "area",                            :null => false
     t.integer  "continent_id"
@@ -155,18 +150,9 @@ ActiveRecord::Schema.define(:version => 1) do
   add_index "countries", ["code"], :name => "index_countries_on_code", :unique => true
   add_index "countries", ["key"], :name => "index_countries_on_key", :unique => true
 
-  create_table "drinks", :force => true do |t|
-    t.integer  "beer_id",    :null => false
-    t.integer  "user_id",    :null => false
-    t.datetime "drunk_at"
-    t.string   "place"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "langs", :force => true do |t|
     t.string   "key",        :null => false
-    t.string   "title",      :null => false
+    t.string   "name",       :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -183,12 +169,19 @@ ActiveRecord::Schema.define(:version => 1) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "notes", :force => true do |t|
-    t.integer  "beer_id",    :null => false
-    t.integer  "user_id",    :null => false
-    t.integer  "rating",     :null => false
-    t.text     "comments"
-    t.string   "place"
+  create_table "names", :force => true do |t|
+    t.string   "name",                         :null => false
+    t.integer  "place_id",                     :null => false
+    t.string   "lang",       :default => "en", :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  create_table "places", :force => true do |t|
+    t.string   "name",       :null => false
+    t.string   "kind",       :null => false
+    t.float    "lat"
+    t.float    "lng"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -196,18 +189,20 @@ ActiveRecord::Schema.define(:version => 1) do
   create_table "props", :force => true do |t|
     t.string   "key",        :null => false
     t.string   "value",      :null => false
+    t.string   "kind"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "regions", :force => true do |t|
-    t.string   "title",      :null => false
+    t.string   "name",       :null => false
     t.string   "key",        :null => false
+    t.integer  "place_id",   :null => false
     t.string   "code"
     t.string   "abbr"
     t.string   "iso"
     t.string   "nuts"
-    t.string   "synonyms"
+    t.string   "alt_names"
     t.integer  "country_id", :null => false
     t.integer  "pop"
     t.integer  "area"
@@ -219,20 +214,22 @@ ActiveRecord::Schema.define(:version => 1) do
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id",        :null => false
-    t.integer  "taggable_id"
-    t.string   "taggable_type"
+    t.integer  "taggable_id",   :null => false
+    t.string   "taggable_type", :null => false
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
 
   add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type", "tag_id"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_tag_id", :unique => true
   add_index "taggings", ["taggable_id", "taggable_type"], :name => "index_taggings_on_taggable_id_and_taggable_type"
 
   create_table "tags", :force => true do |t|
     t.string   "key",                       :null => false
     t.string   "slug",                      :null => false
-    t.string   "title"
+    t.string   "name"
     t.integer  "grade",      :default => 1, :null => false
+    t.integer  "parent_id"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
   end
@@ -245,17 +242,6 @@ ActiveRecord::Schema.define(:version => 1) do
     t.boolean  "official",   :default => true,  :null => false
     t.boolean  "minor",      :default => false, :null => false
     t.float    "percent"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-  end
-
-  create_table "users", :force => true do |t|
-    t.string   "key",                           :null => false
-    t.string   "name",                          :null => false
-    t.string   "email",                         :null => false
-    t.boolean  "admin",      :default => false, :null => false
-    t.boolean  "guest",      :default => false, :null => false
-    t.boolean  "active",     :default => true,  :null => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end

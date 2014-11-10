@@ -9,7 +9,7 @@ Hoe.spec 'beerdb-admin' do
   self.summary = 'beerdb admin addon - rails engine'
   self.description = summary
 
-  self.urls    = ['https://github.com/geraldb/beer.db.admin']
+  self.urls    = ['https://github.com/beerkit/beer.db.admin']
 
   self.author  = 'Gerald Bauer'
   self.email   = 'beerdb@googlegroups.com'
