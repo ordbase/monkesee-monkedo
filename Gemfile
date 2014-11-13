@@ -41,6 +41,7 @@ end
 group :development do
   gem 'sqlite3'
   gem 'annotate', '~> 2.4.1.beta'
+  gem 'hoe'   # NOTE: check - rake called via rvm? uses bundle? 
 end
 
 

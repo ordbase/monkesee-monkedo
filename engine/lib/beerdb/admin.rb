@@ -5,7 +5,7 @@ require 'beerdb/admin/engine'
 module BeerDbAdmin
 
   def self.banner
-    "beerdb-admin #{VERSION} on Ruby #{RUBY_VERSION} (#{RUBY_RELEASE_DATE}) [#{RUBY_PLATFORM}]"
+    "beerdb-admin/#{VERSION} on Ruby #{RUBY_VERSION} (#{RUBY_RELEASE_DATE}) [#{RUBY_PLATFORM}]"
   end
 
   ##  cut off folders lib(#1)/sportdb(#2) to get to root
@@ -16,5 +16,5 @@ module BeerDbAdmin
 end
 
 
-# say hello
-puts BeerDbAdmin.banner
+puts BeerDbAdmin.banner    # say hello
+

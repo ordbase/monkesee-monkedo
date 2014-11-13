@@ -67,10 +67,12 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.2.2)
-    fetcher (0.4.3)
+    fetcher (0.4.4)
       logutils (>= 0.6)
     gli (2.12.2)
     hike (1.2.3)
+    hoe (3.13.0)
+      rake (>= 0.8, < 11.0)
     i18n (0.6.11)
     journey (1.0.4)
     jquery-rails (3.1.2)
@@ -173,6 +175,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   dbbrowser
   fetcher
+  hoe
   jquery-rails
   logutils
   pg

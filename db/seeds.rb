@@ -28,19 +28,9 @@ end
 # download tasks for zips
 
 def dowload_archive( url, dest )
-
   puts "downloading #{url} to #{dest}..."
   worker = Fetcher::Worker.new
-  res = worker.get( url )
-  ## save as binary (do NOT use any charset conversion)
-  ## - worker.copy( world_url, world_dest ) - not working for now/ fix??
-
-  puts "#{res.code}  #{res.message}"
-  puts "content-type: #{res.content_type}, content-length: #{res.content_length}"
-
-  File.open( dest, 'wb' ) do |f|
-    f.write( res.body )
-  end
+  worker.copy( url, dest )
 
   ## print some file stats
   puts "size: #{File.size(dest)} bytes"
