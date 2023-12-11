@@ -1,2 +1,0 @@
-
-Prop = ConfDb::Model::Prop

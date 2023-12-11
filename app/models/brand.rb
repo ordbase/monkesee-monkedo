@@ -1,2 +1,0 @@
-
-Brand = BeerDb::Model::Brand

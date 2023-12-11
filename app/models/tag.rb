@@ -1,2 +1,0 @@
-
-Tag = TagDb::Model::Tag

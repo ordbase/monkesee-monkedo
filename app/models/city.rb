@@ -1,4 +1,0 @@
-
-
-City = WorldDb::Model::City
-
