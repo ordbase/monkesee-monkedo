@@ -1,5 +1,4 @@
 
-
 ATTRIBUTES = {
    backgrounds: [ 
          # solid colors 
@@ -76,6 +75,7 @@ ATTRIBUTES = {
       'shades-rainbow',
       'eyepatch',
       'eyes-big',
+      'eyes-big-blue',
       'eyes-bored',
       'eyes-bot',
       'eyes-bot-green',
