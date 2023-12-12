@@ -1,4 +1,3 @@
-#  Monke See, Monke Do (28×28px)
 
 <!--
 
@@ -31,9 +30,15 @@ Enjoy them. Or don’t. We don’t really care.
 
 
 
->  At the end of the day, the question is simple: do you like the monkes? [(Dec/10)](https://twitter.com/nodemonkes/status/1733948465854460278)
+>  At the end of the day, the question is simple: do you like the monkes? 
 >
-> -- Nodetoshi & Monketoshi, [Node Monkes](https://twitter.com/nodemonkes)
+> -- Nodetoshi & Monketoshi @ [Node Monkes](https://twitter.com/nodemonkes)
+
+<!--  source - https://twitter.com/nodemonkes/status/1733948465854460278 -->
+
+
+#  Monke See, Monke Do (28×28px)
+
 
 
 Let's generate 21 000 monkes (28×28px) in a "Monke See, Monke Do" reference edition.
