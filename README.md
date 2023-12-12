@@ -1,5 +1,40 @@
 #  Monke See, Monke Do (28×28px)
 
+<!--
+
+NodeMonkes is not an institute, movement, council or DAO. 
+
+There is no utility. No roadmap. No events. No merch. Nothing.
+
+We like to experiment and make cool things.
+https://twitter.com/nodemonkes/status/1725468472975450230
+
+Enjoy them. Or don’t. We don’t really care.
+> Mint Mechanics - We will use a descending price Dutch auction. No whitelist.
+> Starting price and duration to be announced. We are considering the impact on the mempool and bot reduction measures.  [(Dec/8)](https://twitter.com/nodemonkes/status/1733133560880435557)
+>
+>  o o o
+>
+>  o o o
+>
+> After we distribute the collection, 
+> Nodetoshi & Monketoshi will buy yachts, with cryogenic chambers on board, and vanish forever. Ahoy!
+>
+> Nodemonkes are immutable digital collectibles on bitcoin. 
+>
+> Their art, provenance & time in history are the utility. Expect nothing more. Do not overspend. [Dec/11](https://twitter.com/nodemonkes/status/1734264167605960886)
+>
+>  -- Nodetoshi & Monketoshi (Node Monkes)
+
+-->
+
+
+
+
+>  At the end of the day, the question is simple: do you like the monkes? [(Dec/10)](https://twitter.com/nodemonkes/status/1733948465854460278)
+>
+> -- Nodetoshi & Monketoshi, [Node Monkes](https://twitter.com/nodemonkes)
+
 
 Let's generate 21 000 monkes (28×28px) in a "Monke See, Monke Do" reference edition.
 
