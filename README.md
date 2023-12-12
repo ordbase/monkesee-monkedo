@@ -44,7 +44,7 @@ Enjoy them. Or don’t. We don’t really care.
 Let's generate 21 000 monkes (28×28px) in a "Monke See, Monke Do" reference edition.
 
 
-Find all 21 000 reference images one-by-one in 24×24px in [**/i**](i):
+Find all 21 000 reference images one-by-one in 28×28px in [**/i**](i):
 
 ![](i/monke00000.png)
 ![](i/monke00001.png)
