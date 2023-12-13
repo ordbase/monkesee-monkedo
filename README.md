@@ -42,7 +42,7 @@ Enjoy them. Or don’t. We don’t really care.
 
 ## What's News? Updates
 
-**NEW!**   Free self-inscribe first-is-first mint (via [bitcoin ordinal inscriptions](https://ordinals.com)) of Monke Twenty One started. See [**orc721.github.io/monkes21 »**](https://orc721.github.io/monkes21) 
+**NEW!**   Free self-inscribe first-is-first mint (via [bitcoin ordinal inscriptions](https://ordinals.com)) of Monkes Twenty One (Monkes21) started. See [**orc721.github.io/monkes21 »**](https://orc721.github.io/monkes21) 
 
 
 
