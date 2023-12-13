@@ -3,7 +3,16 @@ Looking for Punks?
 See [We Love Monkes (24×24px) »](https://github.com/ordbase/welovemonkes)
 
 
+#  Monke See, Monke Do (28×28px)
 
+
+## What's News? Updates
+
+**NEW!**   Free self-inscribe first-is-first mint (via [bitcoin ordinal inscriptions](https://ordinals.com)) of Monkes Twenty One (Monkes21) started. See [**orc721.github.io/monkes21 »**](https://orc721.github.io/monkes21) 
+
+
+
+## Intro
 
 <!--
 
@@ -34,25 +43,10 @@ Enjoy them. Or don’t. We don’t really care.
 -->
 
 
-
-
 >  At the end of the day, the question is simple: do you like the monkes? 
 >
 > -- Nodetoshi & Monketoshi @ [Node Monkes](https://twitter.com/nodemonkes)
 
-<!--  source - https://twitter.com/nodemonkes/status/1733948465854460278 -->
-
-
-#  Monke See, Monke Do (28×28px)
-
-
-## What's News? Updates
-
-**NEW!**   Free self-inscribe first-is-first mint (via [bitcoin ordinal inscriptions](https://ordinals.com)) of Monkes Twenty One (Monkes21) started. See [**orc721.github.io/monkes21 »**](https://orc721.github.io/monkes21) 
-
-
-
-## Intro
 
 Let's generate 21 000 monkes (28×28px) in a "Monke See, Monke Do" reference edition.
 
